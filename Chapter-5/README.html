@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Chapter-5/README.md How to Make a Computer Operating System in C++ | GitBook</title>
+        <meta name="robots" content="index, follow">
+        <link rel="icon" href="../gitbook/images/icons/32.png">
+        <link rel="stylesheet" href="../gitbook/style.css">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="keywords" content="" >
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        
+    </head>
+    <body>
+        
+<div class="book " data-github="SamyPesse/How-to-Make-a-Computer-Operating-System" data-level="5">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i> Summary</a>
+
+    <!-- Actions Right -->
+    <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+
+
+    <!-- Title -->
+    <h1><a href="../README.html" >How to Make a Computer Operating System in C++</a></h1>
+</div>
+    <div class="book-summary">
+    <ul class="summary">
+        <li>
+            <a href="https://github.com/SamyPesse" target="blank">About the author</a>
+        </li>
+        <li>
+            <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/issues" target="blank">Questions and Issues</a>
+        </li>
+        <li class="divider"></li>
+        <li data-level="0">
+            <a href="../README.html"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1">
+                
+                <a href="../Chapter-1/README.html">
+                    <i class="fa fa-check"></i> <b>1)</b> Introduction about the x86 architecture and about our OS
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="2">
+                
+                <a href="../Chapter-2/README.html">
+                    <i class="fa fa-check"></i> <b>2)</b> Setup the development environment
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="3">
+                
+                <a href="../Chapter-3/README.html">
+                    <i class="fa fa-check"></i> <b>3)</b> First boot with GRUB
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="4">
+                
+                <a href="../Chapter-4/README.html">
+                    <i class="fa fa-check"></i> <b>4)</b> Backbone of the OS and C++ runtime
+                </a>
+                
+                
+            </li>
+        
+            <li class="active" data-level="5">
+                
+                <a href="../Chapter-5/README.html">
+                    <i class="fa fa-check"></i> <b>5)</b> Base classes for managing x86 architecture
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="6">
+                
+                <a href="../Chapter-6/README.html">
+                    <i class="fa fa-check"></i> <b>6)</b> GDT
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="7">
+                
+                <a href="../Chapter-7/README.html">
+                    <i class="fa fa-check"></i> <b>7)</b> IDT and interrupts
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="8">
+                
+                <a href="../Chapter-8/README.html">
+                    <i class="fa fa-check"></i> <b>8)</b> Memory management: physical and virtual
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="9">
+                
+                <span><b>9)</b> Process management and multitasking</span>
+                
+                
+            </li>
+        
+            <li  data-level="10">
+                
+                <span><b>10)</b> External program execution: ELF files</span>
+                
+                
+            </li>
+        
+            <li  data-level="11">
+                
+                <span><b>11)</b> Userland and syscalls</span>
+                
+                
+            </li>
+        
+            <li  data-level="12">
+                
+                <span><b>12)</b> Modular drivers</span>
+                
+                
+            </li>
+        
+            <li  data-level="13">
+                
+                <span><b>13)</b> Some basics modules: console, keyboard</span>
+                
+                
+            </li>
+        
+            <li  data-level="14">
+                
+                <span><b>14)</b> IDE Hard disks</span>
+                
+                
+            </li>
+        
+            <li  data-level="15">
+                
+                <span><b>15)</b> DOS Partitions</span>
+                
+                
+            </li>
+        
+            <li  data-level="16">
+                
+                <span><b>16)</b> EXT2 read-only filesystems</span>
+                
+                
+            </li>
+        
+            <li  data-level="17">
+                
+                <span><b>17)</b> Standard C library (libC)</span>
+                
+                
+            </li>
+        
+            <li  data-level="18">
+                
+                <span><b>18)</b> UNIX basic tools: sh, cat</span>
+                
+                
+            </li>
+        
+            <li  data-level="19">
+                
+                <span><b>19)</b> Lua interpreter</span>
+                
+                
+            </li>
+        
+    </ul>
+</div>
+    <div class="book-body">
+        <div class="page-wrapper">
+            <div class="book-progress">
+                <div class="bar">
+                    <div class="inner" style="width: 62.5%;min-width: 50%;"></div>
+                </div>
+                <div class="chapters">
+                
+                    <div class="chapter done" data-progress="0" style="left: 0%;"></div>
+                
+                    <div class="chapter done" data-progress="1" style="left: 12.5%;"></div>
+                
+                    <div class="chapter done" data-progress="2" style="left: 25%;"></div>
+                
+                    <div class="chapter done" data-progress="3" style="left: 37.5%;"></div>
+                
+                    <div class="chapter done" data-progress="4" style="left: 50%;"></div>
+                
+                    <div class="chapter done" data-progress="5" style="left: 62.5%;"></div>
+                
+                    <div class="chapter " data-progress="6" style="left: 75%;"></div>
+                
+                    <div class="chapter " data-progress="7" style="left: 87.5%;"></div>
+                
+                    <div class="chapter " data-progress="8" style="left: 100%;"></div>
+                
+                </div>
+            </div>
+
+            <div class="page-inner">
+            
+                <section class="normal" id="section-gitbook_6">
+                
+                    <h2 id="chapter-5-base-classes-for-managing-x86-architecture">Chapter 5: Base classes for managing x86 architecture</h2>
+<p>Now that we know how to compile our C++ kernel and boot the binary using GRUB, we can start to do some cool things in C/C++.</p>
+<h4 id="printing-to-the-screen-console">Printing to the screen console</h4>
+<p>We are going to use VGA default mode (03h) to display some text to the user. The screen can be directly accessed using the video memory at 0xB8000. The screen resolution is 80x25 and each character on the screen is defined by 2 bytes: one for the character code, and one for the style flag. This means that the total size of the video memory is 4000B (80B<em>25B</em>2B).</p>
+<p>In the IO class (<a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/arch/x86/io.cc" target="_blank">io.cc</a>),:</p>
+<ul>
+<li><strong>x,y</strong>: define the cursor position on the screen</li>
+<li><strong>real_screen</strong>: define the  video memory pointer</li>
+<li><strong>putc(char c)</strong>: print a unique character on the screen and manage cursor position</li>
+<li><strong>printf(char* s, ...)</strong>: print a string</li>
+</ul>
+<p>We add a method <strong>putc</strong> to the <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/arch/x86/io.cc" target="_blank">IO Class</a> to put a character on the screen and update the (x,y) position.</p>
+<pre><code class="lang-cpp">/* put a byte on screen */
+void Io::putc(char c){
+    kattr = 0x07;
+    unsigned char *video;
+    video = (unsigned char *) (real_screen+ 2 * x + 160 * y);
+    // newline
+    if (c == &#39;\n&#39;) {            
+        x = 0;
+        y++;
+    // back space
+    } else if (c == &#39;\b&#39;) {    
+        if (x) {
+            *(video + 1) = 0x0;
+            x--;
+        }
+    // horizontal tab
+    } else if (c == &#39;\t&#39;) {    
+        x = x + 8 - (x % 8);
+    // carriage return
+    } else if (c == &#39;\r&#39;) {    
+        x = 0;
+    } else {        
+        *video = c;
+        *(video + 1) = kattr;
+
+        x++;
+        if (x &gt; 79) {
+            x = 0;
+            y++;
+        }
+    }
+    if (y &gt; 24)
+        scrollup(y - 24);
+}
+</code></pre>
+<p>We also add a useful and very known method: <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/arch/x86/io.cc#L155" target="_blank">printf</a></p>
+<pre><code class="lang-cpp">/* put a string in screen */
+void Io::print(const char *s, ...){
+    va_list ap;
+
+    char buf[16];
+    int i, j, size, buflen, neg;
+
+    unsigned char c;
+    int ival;
+    unsigned int uival;
+
+    va_start(ap, s);
+
+    while ((c = *s++)) {
+        size = 0;
+        neg = 0;
+
+        if (c == 0)
+            break;
+        else if (c == &#39;%&#39;) {
+            c = *s++;
+            if (c &gt;= &#39;0&#39; &amp;&amp; c &lt;= &#39;9&#39;) {
+                size = c - &#39;0&#39;;
+                c = *s++;
+            }
+
+            if (c == &#39;d&#39;) {
+                ival = va_arg(ap, int);
+                if (ival &lt; 0) {
+                    uival = 0 - ival;
+                    neg++;
+                } else
+                    uival = ival;
+                itoa(buf, uival, 10);
+
+                buflen = strlen(buf);
+                if (buflen &lt; size)
+                    for (i = size, j = buflen; i &gt;= 0;
+                         i--, j--)
+                        buf[i] =
+                            (j &gt;=
+                             0) ? buf[j] : &#39;0&#39;;
+
+                if (neg)
+                    print(&quot;-%s&quot;, buf);
+                else
+                    print(buf);
+            }
+             else if (c == &#39;u&#39;) {
+                uival = va_arg(ap, int);
+                itoa(buf, uival, 10);
+
+                buflen = strlen(buf);
+                if (buflen &lt; size)
+                    for (i = size, j = buflen; i &gt;= 0;
+                         i--, j--)
+                        buf[i] =
+                            (j &gt;=
+                             0) ? buf[j] : &#39;0&#39;;
+
+                print(buf);
+            } else if (c == &#39;x&#39; || c == &#39;X&#39;) {
+                uival = va_arg(ap, int);
+                itoa(buf, uival, 16);
+
+                buflen = strlen(buf);
+                if (buflen &lt; size)
+                    for (i = size, j = buflen; i &gt;= 0;
+                         i--, j--)
+                        buf[i] =
+                            (j &gt;=
+                             0) ? buf[j] : &#39;0&#39;;
+
+                print(&quot;0x%s&quot;, buf);
+            } else if (c == &#39;p&#39;) {
+                uival = va_arg(ap, int);
+                itoa(buf, uival, 16);
+                size = 8;
+
+                buflen = strlen(buf);
+                if (buflen &lt; size)
+                    for (i = size, j = buflen; i &gt;= 0;
+                         i--, j--)
+                        buf[i] =
+                            (j &gt;=
+                             0) ? buf[j] : &#39;0&#39;;
+
+                print(&quot;0x%s&quot;, buf);
+            } else if (c == &#39;s&#39;) {
+                print((char *) va_arg(ap, int));
+            } 
+        } else
+            putc(c);
+    }
+
+    return;
+}
+</code></pre>
+<h4 id="assembly-interface">Assembly interface</h4>
+<p>A large number of instructions are available in Assembly but there is not equivalent in C (like cli, sti, in and out), so we need an interface to these instructions.</p>
+<p>In C, we can include Assembly using the directive &quot;asm()&quot;, gcc use gas to compile the assembly.</p>
+<p><strong>Caution:</strong> gas use the AT&amp;T syntax.</p>
+<pre><code class="lang-cpp">/* output byte */
+void Io::outb(u32 ad, u8 v){
+    asmv(&quot;outb %%al, %%dx&quot; :: &quot;d&quot; (ad), &quot;a&quot; (v));;
+}
+/* output word */
+void Io::outw(u32 ad, u16 v){
+    asmv(&quot;outw %%ax, %%dx&quot; :: &quot;d&quot; (ad), &quot;a&quot; (v));
+}
+/* output word */
+void Io::outl(u32 ad, u32 v){
+    asmv(&quot;outl %%eax, %%dx&quot; : : &quot;d&quot; (ad), &quot;a&quot; (v));
+}
+/* input byte */
+u8 Io::inb(u32 ad){
+    u8 _v;       \
+    asmv(&quot;inb %%dx, %%al&quot; : &quot;=a&quot; (_v) : &quot;d&quot; (ad)); \
+    return _v;
+}
+/* input word */
+u16    Io::inw(u32 ad){
+    u16 _v;            \
+    asmv(&quot;inw %%dx, %%ax&quot; : &quot;=a&quot; (_v) : &quot;d&quot; (ad));    \
+    return _v;
+}
+/* input word */
+u32    Io::inl(u32 ad){
+    u32 _v;            \
+    asmv(&quot;inl %%dx, %%eax&quot; : &quot;=a&quot; (_v) : &quot;d&quot; (ad));    \
+    return _v;
+}
+</code></pre>
+
+                
+                </section>
+            
+            </div>
+
+            <div class="page-footer">
+                
+                    
+                        
+                        <a href="../Chapter-6/README.html" class="navigation-link next">Next<span>: GDT</span></a>
+                        
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+    </body>
+</html>

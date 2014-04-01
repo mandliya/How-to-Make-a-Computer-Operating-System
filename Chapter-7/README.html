@@ -1,0 +1,504 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Chapter-7/README.md How to Make a Computer Operating System in C++ | GitBook</title>
+        <meta name="robots" content="index, follow">
+        <link rel="icon" href="../gitbook/images/icons/32.png">
+        <link rel="stylesheet" href="../gitbook/style.css">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="keywords" content="" >
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        
+    </head>
+    <body>
+        
+<div class="book " data-github="SamyPesse/How-to-Make-a-Computer-Operating-System" data-level="7">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i> Summary</a>
+
+    <!-- Actions Right -->
+    <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+
+
+    <!-- Title -->
+    <h1><a href="../README.html" >How to Make a Computer Operating System in C++</a></h1>
+</div>
+    <div class="book-summary">
+    <ul class="summary">
+        <li>
+            <a href="https://github.com/SamyPesse" target="blank">About the author</a>
+        </li>
+        <li>
+            <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/issues" target="blank">Questions and Issues</a>
+        </li>
+        <li class="divider"></li>
+        <li data-level="0">
+            <a href="../README.html"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1">
+                
+                <a href="../Chapter-1/README.html">
+                    <i class="fa fa-check"></i> <b>1)</b> Introduction about the x86 architecture and about our OS
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="2">
+                
+                <a href="../Chapter-2/README.html">
+                    <i class="fa fa-check"></i> <b>2)</b> Setup the development environment
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="3">
+                
+                <a href="../Chapter-3/README.html">
+                    <i class="fa fa-check"></i> <b>3)</b> First boot with GRUB
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="4">
+                
+                <a href="../Chapter-4/README.html">
+                    <i class="fa fa-check"></i> <b>4)</b> Backbone of the OS and C++ runtime
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="5">
+                
+                <a href="../Chapter-5/README.html">
+                    <i class="fa fa-check"></i> <b>5)</b> Base classes for managing x86 architecture
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="6">
+                
+                <a href="../Chapter-6/README.html">
+                    <i class="fa fa-check"></i> <b>6)</b> GDT
+                </a>
+                
+                
+            </li>
+        
+            <li class="active" data-level="7">
+                
+                <a href="../Chapter-7/README.html">
+                    <i class="fa fa-check"></i> <b>7)</b> IDT and interrupts
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="8">
+                
+                <a href="../Chapter-8/README.html">
+                    <i class="fa fa-check"></i> <b>8)</b> Memory management: physical and virtual
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="9">
+                
+                <span><b>9)</b> Process management and multitasking</span>
+                
+                
+            </li>
+        
+            <li  data-level="10">
+                
+                <span><b>10)</b> External program execution: ELF files</span>
+                
+                
+            </li>
+        
+            <li  data-level="11">
+                
+                <span><b>11)</b> Userland and syscalls</span>
+                
+                
+            </li>
+        
+            <li  data-level="12">
+                
+                <span><b>12)</b> Modular drivers</span>
+                
+                
+            </li>
+        
+            <li  data-level="13">
+                
+                <span><b>13)</b> Some basics modules: console, keyboard</span>
+                
+                
+            </li>
+        
+            <li  data-level="14">
+                
+                <span><b>14)</b> IDE Hard disks</span>
+                
+                
+            </li>
+        
+            <li  data-level="15">
+                
+                <span><b>15)</b> DOS Partitions</span>
+                
+                
+            </li>
+        
+            <li  data-level="16">
+                
+                <span><b>16)</b> EXT2 read-only filesystems</span>
+                
+                
+            </li>
+        
+            <li  data-level="17">
+                
+                <span><b>17)</b> Standard C library (libC)</span>
+                
+                
+            </li>
+        
+            <li  data-level="18">
+                
+                <span><b>18)</b> UNIX basic tools: sh, cat</span>
+                
+                
+            </li>
+        
+            <li  data-level="19">
+                
+                <span><b>19)</b> Lua interpreter</span>
+                
+                
+            </li>
+        
+    </ul>
+</div>
+    <div class="book-body">
+        <div class="page-wrapper">
+            <div class="book-progress">
+                <div class="bar">
+                    <div class="inner" style="width: 87.5%;min-width: 75%;"></div>
+                </div>
+                <div class="chapters">
+                
+                    <div class="chapter done" data-progress="0" style="left: 0%;"></div>
+                
+                    <div class="chapter done" data-progress="1" style="left: 12.5%;"></div>
+                
+                    <div class="chapter done" data-progress="2" style="left: 25%;"></div>
+                
+                    <div class="chapter done" data-progress="3" style="left: 37.5%;"></div>
+                
+                    <div class="chapter done" data-progress="4" style="left: 50%;"></div>
+                
+                    <div class="chapter done" data-progress="5" style="left: 62.5%;"></div>
+                
+                    <div class="chapter done" data-progress="6" style="left: 75%;"></div>
+                
+                    <div class="chapter done" data-progress="7" style="left: 87.5%;"></div>
+                
+                    <div class="chapter " data-progress="8" style="left: 100%;"></div>
+                
+                </div>
+            </div>
+
+            <div class="page-inner">
+            
+                <section class="normal" id="section-gitbook_1">
+                
+                    <h2 id="chapter-7-idt-and-interrupts">Chapter 7: IDT and interrupts</h2>
+<p>An interrupt is a signal to the processor emitted by hardware or software indicating an event that needs immediate attention.</p>
+<p>There are 3 types of interrupts:</p>
+<ul>
+<li><strong>Hardware interrupts:</strong> are sent to the processor from an external device (keyboard, mouse, hard disk, ...). Hardware interrupts were introduced as a way to reduce wasting the processor&#39;s valuable time in polling loops, waiting for external events.</li>
+<li><strong>Software interrupts:</strong> are initiated voluntarily by the software. It&#39;s used to manage system calls.</li>
+<li><strong>Exceptions:</strong>  are used for errors or events occurring during program execution that are exceptional enough that they cannot be handled within the program itself (division by zero, page fault, ...)</li>
+</ul>
+<h4 id="the-keyboard-example-">The keyboard example:</h4>
+<p>When the user pressed a key on the keyboard, the keyboard controller will signal an interrupt to the Interrupt Controller. If the interrupt is not masked, the controller signal the interrupt to the processor, the processor will execute a routine to manage the interrupt (key pressed or key released), this routine could for example get the pressed key from the keyboard controller and print the key to the screen. Once the character processing routine is completed, the interrupted job can be resumed.</p>
+<h4 id="what-is-the-pic-">What is the PIC?</h4>
+<p>The <a href="http://en.wikipedia.org/wiki/Programmable_Interrupt_Controller" target="_blank">PIC</a> (Programmable interrupt controller)is a device that is used to combine several sources of interrupt onto one or more CPU lines, while allowing priority levels to be assigned to its interrupt outputs. When the device has multiple interrupt outputs to assert, it asserts them in the order of their relative priority.</p>
+<p>The best known PIC is the 8259A, each 8259A can handle 8 devices but most computers have two controllers: one master and one slave, it&#39;s allow the computer to manager interrupts from 14 devices.</p>
+<p>In this chapter, we will need to program this controller to initialize it and mask interrupts.</p>
+<h4 id="what-is-the-idt-">What is the IDT?</h4>
+<blockquote>
+<p>The Interrupt Descriptor Table (IDT) is a data structure used by the x86 architecture to implement an interrupt vector table. The IDT is used by the processor to determine the correct response to interrupts and exceptions.</p>
+</blockquote>
+<p>Our kernel is going to use the IDT to define the different functions to be executed when an interrupt occurred.</p>
+<p>Like the GDT, the IDT is loaded using the LIDTL assembly instruction. It expects the location of a IDT description structure:</p>
+<pre><code class="lang-cpp">struct idtr {
+    u16 limite;
+    u32 base;
+} __attribute__ ((packed));
+</code></pre>
+<p>The IDT table is composed of IDT segments with the following structure:</p>
+<pre><code class="lang-cpp">struct idtdesc {
+    u16 offset0_15;
+    u16 select;
+    u16 type;
+    u16 offset16_31;
+} __attribute__ ((packed));
+</code></pre>
+<p><strong>Caution:</strong> the directive <code>__attribute__ ((packed))</code> signal to gcc that the structure should use as little memory as possible. Without this directive, gcc include some bytes to optimize the memory alignment and the access during execution.</p>
+<p>Now we need to define our IDT table and then load it using LIDTL. The IDT table can be stored wherever we want in memory, its address should just be signaled to the process using the IDTR registry.</p>
+<p>Here is a table of common interrupts (Maskable hardware interrupt are called IRQ):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">IRQ</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td>Programmable Interrupt Timer Interrupt</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td>Keyboard Interrupt</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>Cascade (used internally by the two PICs. never raised)</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>COM2 (if enabled)</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>COM1 (if enabled)</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>LPT2 (if enabled)</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>Floppy Disk</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>LPT1</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>CMOS real-time clock (if enabled)</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>Free for peripherals / legacy SCSI / NIC</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>Free for peripherals / SCSI / NIC</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td>Free for peripherals / SCSI / NIC</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td>PS2 Mouse</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td>FPU / Coprocessor / Inter-processor</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td>Primary ATA Hard Disk</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td>Secondary ATA Hard Disk</td>
+</tr>
+</tbody>
+</table>
+<h4 id="how-to-initialize-the-interrupts-">How to initialize the interrupts?</h4>
+<p>This is a simple method to define an IDT segment</p>
+<pre><code class="lang-cpp">void init_idt_desc(u16 select, u32 offset, u16 type, struct idtdesc *desc)
+{
+    desc-&gt;offset0_15 = (offset &amp; 0xffff);
+    desc-&gt;select = select;
+    desc-&gt;type = type;
+    desc-&gt;offset16_31 = (offset &amp; 0xffff0000) &gt;&gt; 16;
+    return;
+}
+</code></pre>
+<p>And we can now initialize the interupts:</p>
+<pre><code class="lang-cpp">#define IDTBASE    0x00000000
+#define IDTSIZE 0xFF
+idtr kidtr;
+</code></pre>
+<pre><code class="lang-cpp">void init_idt(void)
+{
+    /* Init irq */
+    int i;
+    for (i = 0; i &lt; IDTSIZE; i++) 
+        init_idt_desc(0x08, (u32)_asm_schedule, INTGATE, &amp;kidt[i]); // 
+
+    /* Vectors  0 -&gt; 31 are for exceptions */
+    init_idt_desc(0x08, (u32) _asm_exc_GP, INTGATE, &amp;kidt[13]);        /* #GP */
+    init_idt_desc(0x08, (u32) _asm_exc_PF, INTGATE, &amp;kidt[14]);     /* #PF */
+
+    init_idt_desc(0x08, (u32) _asm_schedule, INTGATE, &amp;kidt[32]);
+    init_idt_desc(0x08, (u32) _asm_int_1, INTGATE, &amp;kidt[33]);
+
+    init_idt_desc(0x08, (u32) _asm_syscalls, TRAPGATE, &amp;kidt[48]);
+    init_idt_desc(0x08, (u32) _asm_syscalls, TRAPGATE, &amp;kidt[128]); //48
+
+    kidtr.limite = IDTSIZE * 8;
+    kidtr.base = IDTBASE;
+
+
+    /* Copy the IDT to the memory */
+    memcpy((char *) kidtr.base, (char *) kidt, kidtr.limite);
+
+    /* Load the IDTR registry */
+    asm(&quot;lidtl (kidtr)&quot;);
+}
+</code></pre>
+<p>After intialization our IDT, we need to activate interrupts by configuring the PIC. The following function will configure the two PICs by writting in their internal registries using the output ports of the processor <code>io.outb</code>. We configure the PICs using the ports:</p>
+<ul>
+<li>Master PIC: 0x20 and 0x21</li>
+<li>Slave PIC: 0xA0 and 0xA1</li>
+</ul>
+<p>For a PIC, there is 2 types of registries:</p>
+<ul>
+<li>ICW (Initialization Command Word): reinit the controller</li>
+<li>OCW (Operation Control Word): configure the controller once initialized (used to mask/unmask the interrupts)</li>
+</ul>
+<pre><code class="lang-cpp">void init_pic(void)
+{
+    /* Initialization of ICW1 */
+    io.outb(0x20, 0x11);
+    io.outb(0xA0, 0x11);
+
+    /* Initialization of ICW2 */
+    io.outb(0x21, 0x20);    /* start vector = 32 */
+    io.outb(0xA1, 0x70);    /* start vector = 96 */
+
+    /* Initialization of ICW3 */
+    io.outb(0x21, 0x04);
+    io.outb(0xA1, 0x02);
+
+    /* Initialization of ICW4 */
+    io.outb(0x21, 0x01);
+    io.outb(0xA1, 0x01);
+
+    /* mask interrupts */
+    io.outb(0x21, 0x0);
+    io.outb(0xA1, 0x0);
+}
+</code></pre>
+<h4 id="pic-icw-configurations-details">PIC ICW configurations details</h4>
+<p>The registries have to be configured in order.</p>
+<p><strong>ICW1 (port 0x20 / port 0xA0)</strong></p>
+<pre><code>|0|0|0|1|x|0|x|x|
+         |   | +--- with ICW4 (1) or without (0)
+         |   +----- one controller (1), or cascade (0)
+         +--------- triggering by level (level) (1) or by edge (edge) (0)
+</code></pre><p><strong>ICW2 (port 0x21 / port 0xA1)</strong></p>
+<pre><code>|x|x|x|x|x|0|0|0|  
+ | | | | |
+ +----------------- base address for interrupts vectors
+</code></pre><p><strong>ICW2 (port 0x21 / port 0xA1)</strong></p>
+<p>For the master:</p>
+<pre><code>|x|x|x|x|x|x|x|x|
+ | | | | | | | |
+ +------------------ slave controller connected to the port yes (1), or no (0)
+</code></pre><p>For the slave:</p>
+<pre><code>|0|0|0|0|0|x|x|x|  pour l&#39;esclave
+           | | |
+           +-------- Slave ID which is equal to the master port
+</code></pre><p><strong>ICW4 (port 0x21 / port 0xA1)</strong></p>
+<p>It is used to define in which mode the controller chould works.</p>
+<pre><code>|0|0|0|x|x|x|x|1|
+       | | | +------ mode &quot;automatic end of interrupt&quot; AEOI (1)
+       | | +-------- mode buffered slave (0) or master (1)
+       | +---------- mode buffered (1)
+       +------------ mode &quot;fully nested&quot; (1)
+</code></pre><h4 id="why-does-idt-segments-offset-are-asm-functions-">Why does idt segments offset are ASM functions?</h4>
+<p>You should had notice that when I&#39;m initializing our IDT segments, I&#39;m using offset to segment of code in Assembly. The se different functions are defined in <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/arch/x86/x86int.asm" target="_blank">x86int.asm</a> and are following the scheme:</p>
+<pre><code>%macro    SAVE_REGS 0
+    pushad 
+    push ds
+    push es
+    push fs
+    push gs 
+    push ebx
+    mov bx,0x10
+    mov ds,bx
+    pop ebx
+%endmacro
+
+%macro    RESTORE_REGS 0
+    pop gs
+    pop fs
+    pop es
+    pop ds
+    popad
+%endmacro
+
+%macro    INTERRUPT 1
+global _asm_int_%1
+_asm_int_%1:
+    SAVE_REGS
+    push %1
+    call isr_default_int
+    pop eax    ;;a enlever sinon
+    mov al,0x20
+    out 0x20,al
+    RESTORE_REGS
+    iret
+%endmacro
+</code></pre><p>These macros will be used to define interrupt segment that will prevent corruption of the different registries, it will be very usefull for multitasking.</p>
+
+                
+                </section>
+            
+            </div>
+
+            <div class="page-footer">
+                
+                    
+                        
+                        <a href="../Chapter-8/README.html" class="navigation-link next">Next<span>: Memory management: physical and virtual</span></a>
+                        
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+    </body>
+</html>

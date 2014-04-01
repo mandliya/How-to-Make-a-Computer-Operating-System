@@ -1,0 +1,351 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Chapter-6/README.md How to Make a Computer Operating System in C++ | GitBook</title>
+        <meta name="robots" content="index, follow">
+        <link rel="icon" href="../gitbook/images/icons/32.png">
+        <link rel="stylesheet" href="../gitbook/style.css">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="keywords" content="" >
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        
+    </head>
+    <body>
+        
+<div class="book " data-github="SamyPesse/How-to-Make-a-Computer-Operating-System" data-level="6">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i> Summary</a>
+
+    <!-- Actions Right -->
+    <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+
+
+    <!-- Title -->
+    <h1><a href="../README.html" >How to Make a Computer Operating System in C++</a></h1>
+</div>
+    <div class="book-summary">
+    <ul class="summary">
+        <li>
+            <a href="https://github.com/SamyPesse" target="blank">About the author</a>
+        </li>
+        <li>
+            <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/issues" target="blank">Questions and Issues</a>
+        </li>
+        <li class="divider"></li>
+        <li data-level="0">
+            <a href="../README.html"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1">
+                
+                <a href="../Chapter-1/README.html">
+                    <i class="fa fa-check"></i> <b>1)</b> Introduction about the x86 architecture and about our OS
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="2">
+                
+                <a href="../Chapter-2/README.html">
+                    <i class="fa fa-check"></i> <b>2)</b> Setup the development environment
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="3">
+                
+                <a href="../Chapter-3/README.html">
+                    <i class="fa fa-check"></i> <b>3)</b> First boot with GRUB
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="4">
+                
+                <a href="../Chapter-4/README.html">
+                    <i class="fa fa-check"></i> <b>4)</b> Backbone of the OS and C++ runtime
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="5">
+                
+                <a href="../Chapter-5/README.html">
+                    <i class="fa fa-check"></i> <b>5)</b> Base classes for managing x86 architecture
+                </a>
+                
+                
+            </li>
+        
+            <li class="active" data-level="6">
+                
+                <a href="../Chapter-6/README.html">
+                    <i class="fa fa-check"></i> <b>6)</b> GDT
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="7">
+                
+                <a href="../Chapter-7/README.html">
+                    <i class="fa fa-check"></i> <b>7)</b> IDT and interrupts
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="8">
+                
+                <a href="../Chapter-8/README.html">
+                    <i class="fa fa-check"></i> <b>8)</b> Memory management: physical and virtual
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="9">
+                
+                <span><b>9)</b> Process management and multitasking</span>
+                
+                
+            </li>
+        
+            <li  data-level="10">
+                
+                <span><b>10)</b> External program execution: ELF files</span>
+                
+                
+            </li>
+        
+            <li  data-level="11">
+                
+                <span><b>11)</b> Userland and syscalls</span>
+                
+                
+            </li>
+        
+            <li  data-level="12">
+                
+                <span><b>12)</b> Modular drivers</span>
+                
+                
+            </li>
+        
+            <li  data-level="13">
+                
+                <span><b>13)</b> Some basics modules: console, keyboard</span>
+                
+                
+            </li>
+        
+            <li  data-level="14">
+                
+                <span><b>14)</b> IDE Hard disks</span>
+                
+                
+            </li>
+        
+            <li  data-level="15">
+                
+                <span><b>15)</b> DOS Partitions</span>
+                
+                
+            </li>
+        
+            <li  data-level="16">
+                
+                <span><b>16)</b> EXT2 read-only filesystems</span>
+                
+                
+            </li>
+        
+            <li  data-level="17">
+                
+                <span><b>17)</b> Standard C library (libC)</span>
+                
+                
+            </li>
+        
+            <li  data-level="18">
+                
+                <span><b>18)</b> UNIX basic tools: sh, cat</span>
+                
+                
+            </li>
+        
+            <li  data-level="19">
+                
+                <span><b>19)</b> Lua interpreter</span>
+                
+                
+            </li>
+        
+    </ul>
+</div>
+    <div class="book-body">
+        <div class="page-wrapper">
+            <div class="book-progress">
+                <div class="bar">
+                    <div class="inner" style="width: 75%;min-width: 62.5%;"></div>
+                </div>
+                <div class="chapters">
+                
+                    <div class="chapter done" data-progress="0" style="left: 0%;"></div>
+                
+                    <div class="chapter done" data-progress="1" style="left: 12.5%;"></div>
+                
+                    <div class="chapter done" data-progress="2" style="left: 25%;"></div>
+                
+                    <div class="chapter done" data-progress="3" style="left: 37.5%;"></div>
+                
+                    <div class="chapter done" data-progress="4" style="left: 50%;"></div>
+                
+                    <div class="chapter done" data-progress="5" style="left: 62.5%;"></div>
+                
+                    <div class="chapter done" data-progress="6" style="left: 75%;"></div>
+                
+                    <div class="chapter " data-progress="7" style="left: 87.5%;"></div>
+                
+                    <div class="chapter " data-progress="8" style="left: 100%;"></div>
+                
+                </div>
+            </div>
+
+            <div class="page-inner">
+            
+                <section class="normal" id="section-gitbook_7">
+                
+                    <h2 id="chapter-6-gdt">Chapter 6: GDT</h2>
+<p>Thanks to GRUB, your kernel is no longer in real-mode, but already in <a href="http://en.wikipedia.org/wiki/Protected_mode" target="_blank">protected mode</a>, this mode allows us to use all the possibilities of the microprocessor such as virtual memory management, paging and safe multi-tasking.</p>
+<h4 id="what-is-the-gdt-">What is the GDT?</h4>
+<p>The <a href="http://en.wikipedia.org/wiki/Global_Descriptor_Table" target="_blank">GDT</a> (&quot;Global Descriptor Table&quot;) is a data structure used to define the different memory areas: the base address, the size and access privileges like execute and write. These memory areas are called &quot;segments&quot;.</p>
+<p>We are going to use the GDT to define different memory segments:</p>
+<ul>
+<li><em>&quot;code&quot;</em>: kernel code, used to stored the executable binary code</li>
+<li><em>&quot;data&quot;</em>: kernel data</li>
+<li><em>&quot;stack&quot;</em>: kernel stack, used to stored the call stack during kernel execution</li>
+<li><em>&quot;ucode&quot;</em>: user code, used to stored the executable binary code for user program</li>
+<li><em>&quot;udata&quot;</em>: user program data</li>
+<li><em>&quot;ustack&quot;</em>: user stack, used to stored the call stack during execution in userland</li>
+</ul>
+<h4 id="how-to-load-our-gdt-">How to load our GDT?</h4>
+<p>GRUB initializes a GDT but this GDT is does not correspond to our kernel.
+The GDT is loaded using the LGDT assembly instruction. It expects the location of a GDT description structure:</p>
+<p><img src="./gdtr.png" alt="GDTR"></p>
+<p>And the C structure:</p>
+<pre><code class="lang-cpp">struct gdtr {
+    u16 limite;
+    u32 base;
+} __attribute__ ((packed));
+</code></pre>
+<p><strong>Caution:</strong> the directive <code>__attribute__ ((packed))</code> signal to gcc that the structure should use as little memory as possible. Without this directive, gcc include some bytes to optimize the memory alignment and the access during execution.</p>
+<p>Now we need to define our GDT table and then load it using LGDT. The GDT table can be stored wherever we want in memory, its address should just be signaled to the process using the GDTR registry.</p>
+<p>The GDT table is composed of segments with the following structure:</p>
+<p><img src="./gdtentry.png" alt="GDTR"></p>
+<p>And the C structure:</p>
+<pre><code class="lang-cpp">struct gdtdesc {
+    u16 lim0_15;
+    u16 base0_15;
+    u8 base16_23;
+    u8 acces;
+    u8 lim16_19:4;
+    u8 other:4;
+    u8 base24_31;
+} __attribute__ ((packed));
+</code></pre>
+<h4 id="how-to-define-our-gdt-table-">How to define our GDT table?</h4>
+<p>We need now to define our GDT in memory and finally load it using the GDTR registry.</p>
+<p>We are going to store our GDT at the address:</p>
+<pre><code class="lang-cpp">#define GDTBASE    0x00000800
+</code></pre>
+<p>The function <strong>init_gdt_desc</strong> in <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/arch/x86/x86.cc" target="_blank">x86.cc</a> initialize a gdt segment descriptor.</p>
+<pre><code class="lang-cpp">void init_gdt_desc(u32 base, u32 limite, u8 acces, u8 other, struct gdtdesc *desc)
+{
+    desc-&gt;lim0_15 = (limite &amp; 0xffff);
+    desc-&gt;base0_15 = (base &amp; 0xffff);
+    desc-&gt;base16_23 = (base &amp; 0xff0000) &gt;&gt; 16;
+    desc-&gt;acces = acces;
+    desc-&gt;lim16_19 = (limite &amp; 0xf0000) &gt;&gt; 16;
+    desc-&gt;other = (other &amp; 0xf);
+    desc-&gt;base24_31 = (base &amp; 0xff000000) &gt;&gt; 24;
+    return;
+}
+</code></pre>
+<p>And the function <strong>init_gdt</strong> initialize the GDT, some parts of the below function will be explained later and are used for multitasking.</p>
+<pre><code class="lang-cpp">void init_gdt(void)
+{
+    default_tss.debug_flag = 0x00;
+    default_tss.io_map = 0x00;
+    default_tss.esp0 = 0x1FFF0;
+    default_tss.ss0 = 0x18;
+
+    /* initialize gdt segments */
+    init_gdt_desc(0x0, 0x0, 0x0, 0x0, &amp;kgdt[0]);
+    init_gdt_desc(0x0, 0xFFFFF, 0x9B, 0x0D, &amp;kgdt[1]);    /* code */
+    init_gdt_desc(0x0, 0xFFFFF, 0x93, 0x0D, &amp;kgdt[2]);    /* data */
+    init_gdt_desc(0x0, 0x0, 0x97, 0x0D, &amp;kgdt[3]);        /* stack */
+
+    init_gdt_desc(0x0, 0xFFFFF, 0xFF, 0x0D, &amp;kgdt[4]);    /* ucode */
+    init_gdt_desc(0x0, 0xFFFFF, 0xF3, 0x0D, &amp;kgdt[5]);    /* udata */
+    init_gdt_desc(0x0, 0x0, 0xF7, 0x0D, &amp;kgdt[6]);        /* ustack */
+
+    init_gdt_desc((u32) &amp; default_tss, 0x67, 0xE9, 0x00, &amp;kgdt[7]);    /* descripteur de tss */
+
+    /* initialize the gdtr structure */
+    kgdtr.limite = GDTSIZE * 8;
+    kgdtr.base = GDTBASE;
+
+    /* copy the gdtr to its memory area */
+    memcpy((char *) kgdtr.base, (char *) kgdt, kgdtr.limite);
+
+    /* load the gdtr registry */
+    asm(&quot;lgdtl (kgdtr)&quot;);
+
+    /* initiliaz the segments */
+    asm(&quot;   movw $0x10, %ax    \n \
+            movw %ax, %ds    \n \
+            movw %ax, %es    \n \
+            movw %ax, %fs    \n \
+            movw %ax, %gs    \n \
+            ljmp $0x08, $next    \n \
+            next:        \n&quot;);
+}
+</code></pre>
+
+                
+                </section>
+            
+            </div>
+
+            <div class="page-footer">
+                
+                    
+                        
+                        <a href="../Chapter-7/README.html" class="navigation-link next">Next<span>: IDT and interrupts</span></a>
+                        
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+    </body>
+</html>
