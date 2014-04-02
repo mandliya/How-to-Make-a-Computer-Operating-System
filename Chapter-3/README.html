@@ -5,14 +5,19 @@
         <meta charset="UTF-8">
         <title>Chapter-3/README.md How to Make a Computer Operating System in C++ | GitBook</title>
         <meta name="robots" content="index, follow">
-        <link rel="icon" href="../gitbook/images/icons/32.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="../gitbook/style.css">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="">
-        <meta name="keywords" content="" >
+        <meta name="description" content="Book generated using GitBook">
+        <meta name="keywords" content="gitbook,github" >
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <script type="text/javascript">
+        (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+        for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+        mixpanel.init("01eb2b950ae09a5fdb15a98dcc5ff20e");
+        </script>
         
     </head>
     <body>
@@ -203,23 +208,23 @@
                 </div>
                 <div class="chapters">
                 
-                    <div class="chapter done" data-progress="0" style="left: 0%;"></div>
+                    <a href="../README.html" title="" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
                 
-                    <div class="chapter done" data-progress="1" style="left: 12.5%;"></div>
+                    <a href="../Chapter-1/README.html" title="" class="chapter done new-chapter" data-progress="1" style="left: 12.5%;"></a>
                 
-                    <div class="chapter done" data-progress="2" style="left: 25%;"></div>
+                    <a href="../Chapter-2/README.html" title="" class="chapter done new-chapter" data-progress="2" style="left: 25%;"></a>
                 
-                    <div class="chapter done" data-progress="3" style="left: 37.5%;"></div>
+                    <a href="../Chapter-3/README.html" title="" class="chapter done new-chapter" data-progress="3" style="left: 37.5%;"></a>
                 
-                    <div class="chapter " data-progress="4" style="left: 50%;"></div>
+                    <a href="../Chapter-4/README.html" title="" class="chapter  new-chapter" data-progress="4" style="left: 50%;"></a>
                 
-                    <div class="chapter " data-progress="5" style="left: 62.5%;"></div>
+                    <a href="../Chapter-5/README.html" title="" class="chapter  new-chapter" data-progress="5" style="left: 62.5%;"></a>
                 
-                    <div class="chapter " data-progress="6" style="left: 75%;"></div>
+                    <a href="../Chapter-6/README.html" title="" class="chapter  new-chapter" data-progress="6" style="left: 75%;"></a>
                 
-                    <div class="chapter " data-progress="7" style="left: 87.5%;"></div>
+                    <a href="../Chapter-7/README.html" title="" class="chapter  new-chapter" data-progress="7" style="left: 87.5%;"></a>
                 
-                    <div class="chapter " data-progress="8" style="left: 100%;"></div>
+                    <a href="../Chapter-8/README.html" title="" class="chapter  new-chapter" data-progress="8" style="left: 100%;"></a>
                 
                 </div>
             </div>
@@ -253,7 +258,7 @@
 <p>The first boot sequence of our kernel is written in Assembly: <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/arch/x86/start.asm" target="_blank">start.asm</a> and we use a linker file to define our executable structure: <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/arch/x86/linker.ld" target="_blank">linker.ld</a>.</p>
 <p>This boot process also initializes some of our C++ runtime, it will be described in the next chapter.</p>
 <p>Multiboot header structure:</p>
-<pre><code>struct multiboot_info {
+<pre><code><span class="hljs-keyword">struct</span> multiboot_info {
     u32 flags;
     u32 low_mem;
     u32 high_mem;
@@ -261,94 +266,94 @@
     u32 cmdline;
     u32 mods_count;
     u32 mods_addr;
-    struct {
+    <span class="hljs-keyword">struct</span> {
         u32 num;
         u32 size;
         u32 addr;
         u32 shndx;
     } elf_sec;
-    unsigned long mmap_length;
-    unsigned long mmap_addr;
-    unsigned long drives_length;
-    unsigned long drives_addr;
-    unsigned long config_table;
-    unsigned long boot_loader_name;
-    unsigned long apm_table;
-    unsigned long vbe_control_info;
-    unsigned long vbe_mode_info;
-    unsigned long vbe_mode;
-    unsigned long vbe_interface_seg;
-    unsigned long vbe_interface_off;
-    unsigned long vbe_interface_len;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> mmap_length;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> mmap_addr;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> drives_length;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> drives_addr;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> config_table;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> boot_loader_name;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> apm_table;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> vbe_control_info;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> vbe_mode_info;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> vbe_mode;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> vbe_interface_seg;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> vbe_interface_off;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> vbe_interface_len;
 };
 </code></pre><p>You can use the command <code>mbchk kernel.elf</code> to validate your kernel.elf file against the multiboot standard. You can also use the command <code>nm -n kernel.elf</code> to validate the offset of the different objects in the ELF binary.</p>
 <h4 id="create-a-disk-image-for-our-kernel-and-grub">Create a disk image for our kernel and grub</h4>
 <p>The script <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/sdk/diskimage.sh" target="_blank">diskimage.sh</a> will generate a hard disk image than can be used by QEMU.</p>
 <p>The first step is to create a hard-disk image (c.img) using qemu-img:</p>
-<pre><code>qemu-img create c.img 2M
+<pre><code>qemu-img <span class="hljs-operator"><span class="hljs-keyword">create</span> c.img <span class="hljs-number">2</span>M</span>
 </code></pre><p>We need now to partition the disk using fdisk:</p>
 <pre><code>fdisk ./c.img
 
-# Switch to Expert commands
-&gt; x
+<span class="hljs-header"># Switch to Expert commands</span>
+<span class="hljs-blockquote">&gt; x</span>
 
-# Change number of cylinders (1-1048576)
-&gt; c
-&gt; 4
+<span class="hljs-header"># Change number of cylinders (1-1048576)</span>
+<span class="hljs-blockquote">&gt; c</span>
+<span class="hljs-blockquote">&gt; 4</span>
 
-# Change number of heads (1-256, default 16):
-&gt; h
-&gt; 16
+<span class="hljs-header"># Change number of heads (1-256, default 16):</span>
+<span class="hljs-blockquote">&gt; h</span>
+<span class="hljs-blockquote">&gt; 16</span>
 
-# Change number of sectors/track (1-63, default 63)
-&gt; s
-&gt; 63
+<span class="hljs-header"># Change number of sectors/track (1-63, default 63)</span>
+<span class="hljs-blockquote">&gt; s</span>
+<span class="hljs-blockquote">&gt; 63</span>
 
-# Return to main menu
-&gt; r
+<span class="hljs-header"># Return to main menu</span>
+<span class="hljs-blockquote">&gt; r</span>
 
-# Add a new partition
-&gt; n
+<span class="hljs-header"># Add a new partition</span>
+<span class="hljs-blockquote">&gt; n</span>
 
-# Choose primary partition
-&gt; p
+<span class="hljs-header"># Choose primary partition</span>
+<span class="hljs-blockquote">&gt; p</span>
 
-# Choose partition number
-&gt; 1
+<span class="hljs-header"># Choose partition number</span>
+<span class="hljs-blockquote">&gt; 1</span>
 
-# Choose first cylinder (1-4, default 1)
-&gt; 1
+<span class="hljs-header"># Choose first cylinder (1-4, default 1)</span>
+<span class="hljs-blockquote">&gt; 1</span>
 
-# Choose last cylinder, +cylinders or +size{K,M,G} (1-4, default 4)
-&gt; 4
+<span class="hljs-header"># Choose last cylinder, +cylinders or +size{K,M,G} (1-4, default 4)</span>
+<span class="hljs-blockquote">&gt; 4</span>
 
-# Toggle bootable flag
-&gt; a
+<span class="hljs-header"># Toggle bootable flag</span>
+<span class="hljs-blockquote">&gt; a</span>
 
-# Choose first partition for bootable flag
-&gt; 1
+<span class="hljs-header"># Choose first partition for bootable flag</span>
+<span class="hljs-blockquote">&gt; 1</span>
 
-# Write table to disk and exit
-&gt; w
+<span class="hljs-header"># Write table to disk and exit</span>
+<span class="hljs-blockquote">&gt; w</span>
 </code></pre><p>We need now to attach the created partition to the loop-device (which allows a file to be access like a block device) using losetup. The offset of the partition is passed as an argument and calculated using: <strong>offset= start_sector * bytes_by_sector</strong>.</p>
 <p>Using <code>fdisk -l -u c.img</code>, you get: 63 * 512 = 32356.</p>
-<pre><code>losetup -o 32256 /dev/loop1 ./c.img
+<pre><code>losetup -o <span class="hljs-number">32256</span> /dev/loop1 ./c<span class="hljs-preprocessor">.img</span>
 </code></pre><p>We create a EXT2 filesystem on this new device using:</p>
 <pre><code>mke2fs /dev/loop1
 </code></pre><p>We copy our files on a mounted disk:</p>
-<pre><code>mount  /dev/loop1 /mnt/
-cp -R bootdisk/* /mnt/
-umount /mnt/
+<pre><code>mount  <span class="hljs-regexp">/dev/loop1 /mnt/</span>
+cp -R bootdisk<span class="hljs-regexp">/* /mnt/</span>
+umount <span class="hljs-regexp">/mnt/</span>
 </code></pre><p>Install GRUB on the disk:</p>
-<pre><code>grub --device-map=/dev/null &lt;&lt; EOF
-device (hd0) ./c.img
-geometry (hd0) 4 16 63
-root (hd0,0)
-setup (hd0)
-quit
-EOF
+<pre><code>grub --device-map=/dev/null &lt;&lt; <span class="hljs-variable">EOF</span>
+<span class="hljs-function"><span class="hljs-title">device</span> <span class="hljs-params">(hd0)</span> ./<span class="hljs-title">c</span>.<span class="hljs-title">img</span>
+<span class="hljs-title">geometry</span> <span class="hljs-params">(hd0)</span> 4 16 63
+<span class="hljs-title">root</span> <span class="hljs-params">(hd0,<span class="hljs-number">0</span>)</span>
+<span class="hljs-title">setup</span> <span class="hljs-params">(hd0)</span>
+<span class="hljs-title">quit</span>
+EOF</span>
 </code></pre><p>And finally we detach the loop device:</p>
-<pre><code>losetup -d /dev/loop1
+<pre><code>losetup <span class="hljs-operator">-d</span> /dev/loop1
 </code></pre><h4 id="see-also">See Also</h4>
 <ul>
 <li><a href="http://en.wikipedia.org/wiki/GNU_GRUB" target="_blank">GNU GRUB on Wikipedia</a></li>
@@ -364,7 +369,7 @@ EOF
                 
                     
                         
-                        <a href="../Chapter-4/README.html" class="navigation-link next">Next<span>: Backbone of the OS and C++ runtime</span></a>
+                        <a href="../Chapter-4/README.html" class="navigation-link next">Next</a>
                         
                     
                 

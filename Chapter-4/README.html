@@ -5,14 +5,19 @@
         <meta charset="UTF-8">
         <title>Chapter-4/README.md How to Make a Computer Operating System in C++ | GitBook</title>
         <meta name="robots" content="index, follow">
-        <link rel="icon" href="../gitbook/images/icons/32.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="../gitbook/style.css">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="">
-        <meta name="keywords" content="" >
+        <meta name="description" content="Book generated using GitBook">
+        <meta name="keywords" content="gitbook,github" >
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <script type="text/javascript">
+        (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+        for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+        mixpanel.init("01eb2b950ae09a5fdb15a98dcc5ff20e");
+        </script>
         
     </head>
     <body>
@@ -203,23 +208,23 @@
                 </div>
                 <div class="chapters">
                 
-                    <div class="chapter done" data-progress="0" style="left: 0%;"></div>
+                    <a href="../README.html" title="" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
                 
-                    <div class="chapter done" data-progress="1" style="left: 12.5%;"></div>
+                    <a href="../Chapter-1/README.html" title="" class="chapter done new-chapter" data-progress="1" style="left: 12.5%;"></a>
                 
-                    <div class="chapter done" data-progress="2" style="left: 25%;"></div>
+                    <a href="../Chapter-2/README.html" title="" class="chapter done new-chapter" data-progress="2" style="left: 25%;"></a>
                 
-                    <div class="chapter done" data-progress="3" style="left: 37.5%;"></div>
+                    <a href="../Chapter-3/README.html" title="" class="chapter done new-chapter" data-progress="3" style="left: 37.5%;"></a>
                 
-                    <div class="chapter done" data-progress="4" style="left: 50%;"></div>
+                    <a href="../Chapter-4/README.html" title="" class="chapter done new-chapter" data-progress="4" style="left: 50%;"></a>
                 
-                    <div class="chapter " data-progress="5" style="left: 62.5%;"></div>
+                    <a href="../Chapter-5/README.html" title="" class="chapter  new-chapter" data-progress="5" style="left: 62.5%;"></a>
                 
-                    <div class="chapter " data-progress="6" style="left: 75%;"></div>
+                    <a href="../Chapter-6/README.html" title="" class="chapter  new-chapter" data-progress="6" style="left: 75%;"></a>
                 
-                    <div class="chapter " data-progress="7" style="left: 87.5%;"></div>
+                    <a href="../Chapter-7/README.html" title="" class="chapter  new-chapter" data-progress="7" style="left: 87.5%;"></a>
                 
-                    <div class="chapter " data-progress="8" style="left: 100%;"></div>
+                    <a href="../Chapter-8/README.html" title="" class="chapter  new-chapter" data-progress="8" style="left: 100%;"></a>
                 
                 </div>
             </div>
@@ -235,46 +240,46 @@
 <p><strong>Caution:</strong> The operators <code>new</code> and <code>delete</code> cannot be used before virtual memory and pagination have been initialized.</p>
 <h4 id="basic-c-c-functions">Basic C/C++ functions</h4>
 <p>The kernel code can&#39;t use functions from the standard libraries so we need to add some basic functions for managing memory and strings:</p>
-<pre><code class="lang-cpp">void     itoa(char *buf, unsigned long int n, int base);
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span>     itoa(<span class="hljs-keyword">char</span> *buf, <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> base);
 
-void *    memset(char *dst,char src, int n);
-void *    memcpy(char *dst, char *src, int n);
+<span class="hljs-keyword">void</span> *    <span class="hljs-built_in">memset</span>(<span class="hljs-keyword">char</span> *dst,<span class="hljs-keyword">char</span> src, <span class="hljs-keyword">int</span> n);
+<span class="hljs-keyword">void</span> *    <span class="hljs-built_in">memcpy</span>(<span class="hljs-keyword">char</span> *dst, <span class="hljs-keyword">char</span> *src, <span class="hljs-keyword">int</span> n);
 
-int     strlen(char *s);
-int     strcmp(const char *dst, char *src);
-int     strcpy(char *dst,const char *src);
-void     strcat(void *dest,const void *src);
-char *    strncpy(char *destString, const char *sourceString,int maxLength);
-int     strncmp( const char* s1, const char* s2, int c );
+<span class="hljs-keyword">int</span>     <span class="hljs-built_in">strlen</span>(<span class="hljs-keyword">char</span> *s);
+<span class="hljs-keyword">int</span>     <span class="hljs-built_in">strcmp</span>(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *dst, <span class="hljs-keyword">char</span> *src);
+<span class="hljs-keyword">int</span>     <span class="hljs-built_in">strcpy</span>(<span class="hljs-keyword">char</span> *dst,<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *src);
+<span class="hljs-keyword">void</span>     <span class="hljs-built_in">strcat</span>(<span class="hljs-keyword">void</span> *dest,<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *src);
+<span class="hljs-keyword">char</span> *    <span class="hljs-built_in">strncpy</span>(<span class="hljs-keyword">char</span> *destString, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *sourceString,<span class="hljs-keyword">int</span> maxLength);
+<span class="hljs-keyword">int</span>     <span class="hljs-built_in">strncmp</span>( <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* s2, <span class="hljs-keyword">int</span> c );
 </code></pre>
 <p>These functions are defined in <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/runtime/string.cc" target="_blank">string.cc</a>, <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/runtime/memory.cc" target="_blank">memory.cc</a>, <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/runtime/itoa.cc" target="_blank">itoa.cc</a></p>
 <h4 id="c-types">C types</h4>
 <p>During the next step, we are going to use different types in our code, most of the types we are going to use unsigned types (all the bits are used to stored the integer, in signed types one bit is used to signal the sign):</p>
-<pre><code class="lang-cpp">typedef unsigned char     u8;
-typedef unsigned short     u16;
-typedef unsigned int     u32;
-typedef unsigned long long     u64;
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span>     u8;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">short</span>     u16;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>     u32;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>     u64;
 
-typedef signed char     s8;
-typedef signed short     s16;
-typedef signed int         s32;
-typedef signed long long    s64;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">signed</span> <span class="hljs-keyword">char</span>     s8;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">signed</span> <span class="hljs-keyword">short</span>     s16;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">signed</span> <span class="hljs-keyword">int</span>         s32;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">signed</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>    s64;
 </code></pre>
 <h4 id="compile-our-kernel">Compile our kernel</h4>
 <p>Compiling a kernel is not the same thing as compiling a linux executable, we can&#39;t use a standard library and should have no dependencies to the system.</p>
 <p>Our <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/Makefile" target="_blank">Makefile</a> will define the process to compile and link our kernel.</p>
 <p>For x86 architecture, the followings arguments will be used for gcc/g++/ld:</p>
-<pre><code># Linker
-LD=ld
-LDFLAG= -melf_i386 -static  -L ./  -T ./arch/$(ARCH)/linker.ld
+<pre><code><span class="hljs-comment"># Linker</span>
+<span class="hljs-constant">LD</span>=ld
+<span class="hljs-constant">LDFLAG</span>= -melf_i386 -static  -L ./  -T ./arch/<span class="hljs-variable">$(ARCH)</span>/linker.ld
 
-# C++ compiler
-SC=g++
-FLAG= $(INCDIR) -g -O2 -w -trigraphs -fno-builtin  -fno-exceptions -fno-stack-protector -O0 -m32  -fno-rtti -nostdlib -nodefaultlibs 
+<span class="hljs-comment"># C++ compiler</span>
+<span class="hljs-constant">SC</span>=g++
+<span class="hljs-constant">FLAG</span>= <span class="hljs-variable">$(INCDIR)</span> -g -O2 -w -trigraphs -fno-builtin  -fno-exceptions -fno-stack-protector -O0 -m32  -fno-rtti -nostdlib -nodefaultlibs 
 
-# Assembly compiler
-ASM=nasm
-ASMFLAG=-f elf -o
+<span class="hljs-comment"># Assembly compiler</span>
+<span class="hljs-constant">ASM</span>=nasm
+<span class="hljs-constant">ASMFLAG</span>=-f elf -o
 </code></pre>
                 
                 </section>
@@ -285,7 +290,7 @@ ASMFLAG=-f elf -o
                 
                     
                         
-                        <a href="../Chapter-5/README.html" class="navigation-link next">Next<span>: Base classes for managing x86 architecture</span></a>
+                        <a href="../Chapter-5/README.html" class="navigation-link next">Next</a>
                         
                     
                 

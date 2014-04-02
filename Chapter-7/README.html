@@ -5,14 +5,19 @@
         <meta charset="UTF-8">
         <title>Chapter-7/README.md How to Make a Computer Operating System in C++ | GitBook</title>
         <meta name="robots" content="index, follow">
-        <link rel="icon" href="../gitbook/images/icons/32.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="../gitbook/style.css">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="">
-        <meta name="keywords" content="" >
+        <meta name="description" content="Book generated using GitBook">
+        <meta name="keywords" content="gitbook,github" >
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <script type="text/javascript">
+        (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+        for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+        mixpanel.init("01eb2b950ae09a5fdb15a98dcc5ff20e");
+        </script>
         
     </head>
     <body>
@@ -203,23 +208,23 @@
                 </div>
                 <div class="chapters">
                 
-                    <div class="chapter done" data-progress="0" style="left: 0%;"></div>
+                    <a href="../README.html" title="" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
                 
-                    <div class="chapter done" data-progress="1" style="left: 12.5%;"></div>
+                    <a href="../Chapter-1/README.html" title="" class="chapter done new-chapter" data-progress="1" style="left: 12.5%;"></a>
                 
-                    <div class="chapter done" data-progress="2" style="left: 25%;"></div>
+                    <a href="../Chapter-2/README.html" title="" class="chapter done new-chapter" data-progress="2" style="left: 25%;"></a>
                 
-                    <div class="chapter done" data-progress="3" style="left: 37.5%;"></div>
+                    <a href="../Chapter-3/README.html" title="" class="chapter done new-chapter" data-progress="3" style="left: 37.5%;"></a>
                 
-                    <div class="chapter done" data-progress="4" style="left: 50%;"></div>
+                    <a href="../Chapter-4/README.html" title="" class="chapter done new-chapter" data-progress="4" style="left: 50%;"></a>
                 
-                    <div class="chapter done" data-progress="5" style="left: 62.5%;"></div>
+                    <a href="../Chapter-5/README.html" title="" class="chapter done new-chapter" data-progress="5" style="left: 62.5%;"></a>
                 
-                    <div class="chapter done" data-progress="6" style="left: 75%;"></div>
+                    <a href="../Chapter-6/README.html" title="" class="chapter done new-chapter" data-progress="6" style="left: 75%;"></a>
                 
-                    <div class="chapter done" data-progress="7" style="left: 87.5%;"></div>
+                    <a href="../Chapter-7/README.html" title="" class="chapter done new-chapter" data-progress="7" style="left: 87.5%;"></a>
                 
-                    <div class="chapter " data-progress="8" style="left: 100%;"></div>
+                    <a href="../Chapter-8/README.html" title="" class="chapter  new-chapter" data-progress="8" style="left: 100%;"></a>
                 
                 </div>
             </div>
@@ -248,16 +253,16 @@
 </blockquote>
 <p>Our kernel is going to use the IDT to define the different functions to be executed when an interrupt occurred.</p>
 <p>Like the GDT, the IDT is loaded using the LIDTL assembly instruction. It expects the location of a IDT description structure:</p>
-<pre><code class="lang-cpp">struct idtr {
-    u16 limite;
-    u32 base;
-} __attribute__ ((packed));
+<pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> idtr {
+    <span class="hljs-keyword">u16</span> limite;
+    <span class="hljs-keyword">u32</span> base;
+} <span class="hljs-number">__</span>attribute__ ((packed));
 </code></pre>
 <p>The IDT table is composed of IDT segments with the following structure:</p>
-<pre><code class="lang-cpp">struct idtdesc {
+<pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> idtdesc {
     u16 offset0_15;
     u16 select;
-    u16 type;
+    u16 <span class="hljs-class"><span class="hljs-keyword">type</span>;</span>
     u16 offset16_31;
 } __attribute__ ((packed));
 </code></pre>
@@ -340,46 +345,46 @@
 </table>
 <h4 id="how-to-initialize-the-interrupts-">How to initialize the interrupts?</h4>
 <p>This is a simple method to define an IDT segment</p>
-<pre><code class="lang-cpp">void init_idt_desc(u16 select, u32 offset, u16 type, struct idtdesc *desc)
+<pre><code class="lang-cpp"><span class="hljs-literal">void</span> init_idt_desc(u16 <span class="hljs-keyword">select</span>, u32 offset, u16 <span class="hljs-keyword">type</span>, struct idtdesc <span class="hljs-subst">*</span>desc)
 {
-    desc-&gt;offset0_15 = (offset &amp; 0xffff);
-    desc-&gt;select = select;
-    desc-&gt;type = type;
-    desc-&gt;offset16_31 = (offset &amp; 0xffff0000) &gt;&gt; 16;
-    return;
+    desc<span class="hljs-subst">-&gt;</span>offset0_15 <span class="hljs-subst">=</span> (offset <span class="hljs-subst">&amp;</span> <span class="hljs-number">0xffff</span>);
+    desc<span class="hljs-subst">-&gt;</span><span class="hljs-keyword">select</span> <span class="hljs-subst">=</span> <span class="hljs-keyword">select</span>;
+    desc<span class="hljs-subst">-&gt;</span><span class="hljs-keyword">type</span> <span class="hljs-subst">=</span> <span class="hljs-keyword">type</span>;
+    desc<span class="hljs-subst">-&gt;</span>offset16_31 <span class="hljs-subst">=</span> (offset <span class="hljs-subst">&amp;</span> <span class="hljs-number">0xffff0000</span>) <span class="hljs-subst">&gt;&gt;</span> <span class="hljs-number">16</span>;
+    <span class="hljs-keyword">return</span>;
 }
 </code></pre>
 <p>And we can now initialize the interupts:</p>
-<pre><code class="lang-cpp">#define IDTBASE    0x00000000
-#define IDTSIZE 0xFF
+<pre><code class="lang-cpp"><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> IDTBASE    0x00000000</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> IDTSIZE 0xFF</span>
 idtr kidtr;
 </code></pre>
 <pre><code class="lang-cpp">void init_idt(void)
 {
-    /* Init irq */
-    int i;
-    for (i = 0; i &lt; IDTSIZE; i++) 
-        init_idt_desc(0x08, (u32)_asm_schedule, INTGATE, &amp;kidt[i]); // 
+    <span class="hljs-comment">/* Init irq */</span>
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; IDTSIZE; i++) 
+        init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>)<span class="hljs-number">_</span>asm_schedule, INTGATE, &amp;kidt[i]); <span class="hljs-comment">// </span>
 
-    /* Vectors  0 -&gt; 31 are for exceptions */
-    init_idt_desc(0x08, (u32) _asm_exc_GP, INTGATE, &amp;kidt[13]);        /* #GP */
-    init_idt_desc(0x08, (u32) _asm_exc_PF, INTGATE, &amp;kidt[14]);     /* #PF */
+    <span class="hljs-comment">/* Vectors  0 -&gt; 31 are for exceptions */</span>
+    init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>) <span class="hljs-number">_</span>asm_exc_GP, INTGATE, &amp;kidt[<span class="hljs-number">13</span>]);        <span class="hljs-comment">/* #GP */</span>
+    init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>) <span class="hljs-number">_</span>asm_exc_PF, INTGATE, &amp;kidt[<span class="hljs-number">14</span>]);     <span class="hljs-comment">/* #PF */</span>
 
-    init_idt_desc(0x08, (u32) _asm_schedule, INTGATE, &amp;kidt[32]);
-    init_idt_desc(0x08, (u32) _asm_int_1, INTGATE, &amp;kidt[33]);
+    init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>) <span class="hljs-number">_</span>asm_schedule, INTGATE, &amp;kidt[<span class="hljs-number">32</span>]);
+    init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>) <span class="hljs-number">_</span>asm_int_1, INTGATE, &amp;kidt[<span class="hljs-number">33</span>]);
 
-    init_idt_desc(0x08, (u32) _asm_syscalls, TRAPGATE, &amp;kidt[48]);
-    init_idt_desc(0x08, (u32) _asm_syscalls, TRAPGATE, &amp;kidt[128]); //48
+    init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>) <span class="hljs-number">_</span>asm_syscalls, TRAPGATE, &amp;kidt[<span class="hljs-number">48</span>]);
+    init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>) <span class="hljs-number">_</span>asm_syscalls, TRAPGATE, &amp;kidt[<span class="hljs-number">128</span>]); <span class="hljs-comment">//48</span>
 
-    kidtr.limite = IDTSIZE * 8;
+    kidtr.limite = IDTSIZE * <span class="hljs-number">8</span>;
     kidtr.base = IDTBASE;
 
 
-    /* Copy the IDT to the memory */
-    memcpy((char *) kidtr.base, (char *) kidt, kidtr.limite);
+    <span class="hljs-comment">/* Copy the IDT to the memory */</span>
+    memcpy((<span class="hljs-keyword">char</span> *) kidtr.base, (<span class="hljs-keyword">char</span> *) kidt, kidtr.limite);
 
-    /* Load the IDTR registry */
-    asm(&quot;lidtl (kidtr)&quot;);
+    <span class="hljs-comment">/* Load the IDTR registry */</span>
+    asm(<span class="hljs-string">"lidtl (kidtr)"</span>);
 }
 </code></pre>
 <p>After intialization our IDT, we need to activate interrupts by configuring the PIC. The following function will configure the two PICs by writting in their internal registries using the output ports of the processor <code>io.outb</code>. We configure the PICs using the ports:</p>
@@ -394,88 +399,88 @@ idtr kidtr;
 </ul>
 <pre><code class="lang-cpp">void init_pic(void)
 {
-    /* Initialization of ICW1 */
-    io.outb(0x20, 0x11);
-    io.outb(0xA0, 0x11);
+    <span class="hljs-comment">/* Initialization of ICW1 */</span>
+    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0x20</span>, <span class="hljs-number">0x11</span>)<span class="hljs-comment">;</span>
+    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0xA0</span>, <span class="hljs-number">0x11</span>)<span class="hljs-comment">;</span>
 
-    /* Initialization of ICW2 */
-    io.outb(0x21, 0x20);    /* start vector = 32 */
-    io.outb(0xA1, 0x70);    /* start vector = 96 */
+    <span class="hljs-comment">/* Initialization of ICW2 */</span>
+    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0x21</span>, <span class="hljs-number">0x20</span>)<span class="hljs-comment">;    /* start vector = 32 */</span>
+    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0xA1</span>, <span class="hljs-number">0x70</span>)<span class="hljs-comment">;    /* start vector = 96 */</span>
 
-    /* Initialization of ICW3 */
-    io.outb(0x21, 0x04);
-    io.outb(0xA1, 0x02);
+    <span class="hljs-comment">/* Initialization of ICW3 */</span>
+    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0x21</span>, <span class="hljs-number">0x04</span>)<span class="hljs-comment">;</span>
+    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0xA1</span>, <span class="hljs-number">0x02</span>)<span class="hljs-comment">;</span>
 
-    /* Initialization of ICW4 */
-    io.outb(0x21, 0x01);
-    io.outb(0xA1, 0x01);
+    <span class="hljs-comment">/* Initialization of ICW4 */</span>
+    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0x21</span>, <span class="hljs-number">0x01</span>)<span class="hljs-comment">;</span>
+    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0xA1</span>, <span class="hljs-number">0x01</span>)<span class="hljs-comment">;</span>
 
-    /* mask interrupts */
-    io.outb(0x21, 0x0);
-    io.outb(0xA1, 0x0);
+    <span class="hljs-comment">/* mask interrupts */</span>
+    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0x21</span>, <span class="hljs-number">0x0</span>)<span class="hljs-comment">;</span>
+    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0xA1</span>, <span class="hljs-number">0x0</span>)<span class="hljs-comment">;</span>
 }
 </code></pre>
 <h4 id="pic-icw-configurations-details">PIC ICW configurations details</h4>
 <p>The registries have to be configured in order.</p>
 <p><strong>ICW1 (port 0x20 / port 0xA0)</strong></p>
-<pre><code>|0|0|0|1|x|0|x|x|
-         |   | +--- with ICW4 (1) or without (0)
-         |   +----- one controller (1), or cascade (0)
-         +--------- triggering by level (level) (1) or by edge (edge) (0)
+<pre><code>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">1</span>|x|<span class="hljs-number">0</span>|x|x|
+         |   | +--- <span class="hljs-keyword">with</span> ICW4 (<span class="hljs-number">1</span>) <span class="hljs-keyword">or</span> without (<span class="hljs-number">0</span>)
+         |   +----- one controller (<span class="hljs-number">1</span>), <span class="hljs-keyword">or</span> cascade (<span class="hljs-number">0</span>)
+         +--------- triggering <span class="hljs-keyword">by</span> level (level) (<span class="hljs-number">1</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">by</span> edge (edge) (<span class="hljs-number">0</span>)
 </code></pre><p><strong>ICW2 (port 0x21 / port 0xA1)</strong></p>
-<pre><code>|x|x|x|x|x|0|0|0|  
+<pre><code><span class="hljs-localvars">|x|x|x|x|x|</span><span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|  
  | | | | |
  +----------------- base address for interrupts vectors
 </code></pre><p><strong>ICW2 (port 0x21 / port 0xA1)</strong></p>
 <p>For the master:</p>
-<pre><code>|x|x|x|x|x|x|x|x|
+<pre><code><span class="hljs-localvars">|x|x|x|x|x|x|x|x|</span>
  | | | | | | | |
- +------------------ slave controller connected to the port yes (1), or no (0)
+ +------------------ slave controller connected to the port yes (<span class="hljs-number">1</span>), or no (<span class="hljs-number">0</span>)
 </code></pre><p>For the slave:</p>
-<pre><code>|0|0|0|0|0|x|x|x|  pour l&#39;esclave
+<pre><code>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|x|x|x|  pour l<span class="hljs-comment">'esclave</span>
            | | |
-           +-------- Slave ID which is equal to the master port
+           +-------- Slave ID which <span class="hljs-keyword">is</span> equal <span class="hljs-keyword">to</span> the master port
 </code></pre><p><strong>ICW4 (port 0x21 / port 0xA1)</strong></p>
 <p>It is used to define in which mode the controller chould works.</p>
-<pre><code>|0|0|0|x|x|x|x|1|
-       | | | +------ mode &quot;automatic end of interrupt&quot; AEOI (1)
-       | | +-------- mode buffered slave (0) or master (1)
-       | +---------- mode buffered (1)
-       +------------ mode &quot;fully nested&quot; (1)
+<pre><code>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span><span class="hljs-localvars">|x|x|x|x|</span><span class="hljs-number">1</span>|
+       | | | +------ mode <span class="hljs-comment">"automatic end of interrupt"</span> <span class="hljs-class">AEOI</span> (<span class="hljs-number">1</span>)
+       | | +-------- mode buffered slave (<span class="hljs-number">0</span>) or master (<span class="hljs-number">1</span>)
+       | +---------- mode buffered (<span class="hljs-number">1</span>)
+       +------------ mode <span class="hljs-comment">"fully nested"</span> (<span class="hljs-number">1</span>)
 </code></pre><h4 id="why-does-idt-segments-offset-are-asm-functions-">Why does idt segments offset are ASM functions?</h4>
 <p>You should had notice that when I&#39;m initializing our IDT segments, I&#39;m using offset to segment of code in Assembly. The se different functions are defined in <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/arch/x86/x86int.asm" target="_blank">x86int.asm</a> and are following the scheme:</p>
-<pre><code>%macro    SAVE_REGS 0
+<pre><code><span class="hljs-variable">%macro</span>    SAVE_REGS <span class="hljs-number">0</span>
     pushad 
-    push ds
-    push es
-    push fs
-    push gs 
-    push ebx
-    mov bx,0x10
+    <span class="hljs-keyword">push</span> ds
+    <span class="hljs-keyword">push</span> es
+    <span class="hljs-keyword">push</span> fs
+    <span class="hljs-keyword">push</span> gs 
+    <span class="hljs-keyword">push</span> ebx
+    mov bx,<span class="hljs-number">0x10</span>
     mov ds,bx
-    pop ebx
-%endmacro
+    <span class="hljs-keyword">pop</span> ebx
+<span class="hljs-variable">%endmacro</span>
 
-%macro    RESTORE_REGS 0
-    pop gs
-    pop fs
-    pop es
-    pop ds
+<span class="hljs-variable">%macro</span>    RESTORE_REGS <span class="hljs-number">0</span>
+    <span class="hljs-keyword">pop</span> gs
+    <span class="hljs-keyword">pop</span> fs
+    <span class="hljs-keyword">pop</span> es
+    <span class="hljs-keyword">pop</span> ds
     popad
-%endmacro
+<span class="hljs-variable">%endmacro</span>
 
-%macro    INTERRUPT 1
-global _asm_int_%1
-_asm_int_%1:
+<span class="hljs-variable">%macro</span>    INTERRUPT <span class="hljs-number">1</span>
+global _asm_int<span class="hljs-number">_</span><span class="hljs-variable">%1</span>
+_asm_int<span class="hljs-number">_</span><span class="hljs-variable">%1</span>:
     SAVE_REGS
-    push %1
+    <span class="hljs-keyword">push</span> <span class="hljs-variable">%1</span>
     call isr_default_int
-    pop eax    ;;a enlever sinon
-    mov al,0x20
-    out 0x20,al
+    <span class="hljs-keyword">pop</span> eax    ;;a enlever sinon
+    mov al,<span class="hljs-number">0x20</span>
+    out <span class="hljs-number">0x20</span>,al
     RESTORE_REGS
     iret
-%endmacro
+<span class="hljs-variable">%endmacro</span>
 </code></pre><p>These macros will be used to define interrupt segment that will prevent corruption of the different registries, it will be very usefull for multitasking.</p>
 
                 
@@ -487,7 +492,7 @@ _asm_int_%1:
                 
                     
                         
-                        <a href="../Chapter-8/README.html" class="navigation-link next">Next<span>: Memory management: physical and virtual</span></a>
+                        <a href="../Chapter-8/README.html" class="navigation-link next">Next</a>
                         
                     
                 

@@ -5,14 +5,19 @@
         <meta charset="UTF-8">
         <title>Chapter-5/README.md How to Make a Computer Operating System in C++ | GitBook</title>
         <meta name="robots" content="index, follow">
-        <link rel="icon" href="../gitbook/images/icons/32.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="../gitbook/style.css">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="">
-        <meta name="keywords" content="" >
+        <meta name="description" content="Book generated using GitBook">
+        <meta name="keywords" content="gitbook,github" >
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <script type="text/javascript">
+        (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+        for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+        mixpanel.init("01eb2b950ae09a5fdb15a98dcc5ff20e");
+        </script>
         
     </head>
     <body>
@@ -203,23 +208,23 @@
                 </div>
                 <div class="chapters">
                 
-                    <div class="chapter done" data-progress="0" style="left: 0%;"></div>
+                    <a href="../README.html" title="" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
                 
-                    <div class="chapter done" data-progress="1" style="left: 12.5%;"></div>
+                    <a href="../Chapter-1/README.html" title="" class="chapter done new-chapter" data-progress="1" style="left: 12.5%;"></a>
                 
-                    <div class="chapter done" data-progress="2" style="left: 25%;"></div>
+                    <a href="../Chapter-2/README.html" title="" class="chapter done new-chapter" data-progress="2" style="left: 25%;"></a>
                 
-                    <div class="chapter done" data-progress="3" style="left: 37.5%;"></div>
+                    <a href="../Chapter-3/README.html" title="" class="chapter done new-chapter" data-progress="3" style="left: 37.5%;"></a>
                 
-                    <div class="chapter done" data-progress="4" style="left: 50%;"></div>
+                    <a href="../Chapter-4/README.html" title="" class="chapter done new-chapter" data-progress="4" style="left: 50%;"></a>
                 
-                    <div class="chapter done" data-progress="5" style="left: 62.5%;"></div>
+                    <a href="../Chapter-5/README.html" title="" class="chapter done new-chapter" data-progress="5" style="left: 62.5%;"></a>
                 
-                    <div class="chapter " data-progress="6" style="left: 75%;"></div>
+                    <a href="../Chapter-6/README.html" title="" class="chapter  new-chapter" data-progress="6" style="left: 75%;"></a>
                 
-                    <div class="chapter " data-progress="7" style="left: 87.5%;"></div>
+                    <a href="../Chapter-7/README.html" title="" class="chapter  new-chapter" data-progress="7" style="left: 87.5%;"></a>
                 
-                    <div class="chapter " data-progress="8" style="left: 100%;"></div>
+                    <a href="../Chapter-8/README.html" title="" class="chapter  new-chapter" data-progress="8" style="left: 100%;"></a>
                 
                 </div>
             </div>
@@ -240,173 +245,173 @@
 <li><strong>printf(char* s, ...)</strong>: print a string</li>
 </ul>
 <p>We add a method <strong>putc</strong> to the <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/arch/x86/io.cc" target="_blank">IO Class</a> to put a character on the screen and update the (x,y) position.</p>
-<pre><code class="lang-cpp">/* put a byte on screen */
-void Io::putc(char c){
-    kattr = 0x07;
-    unsigned char *video;
-    video = (unsigned char *) (real_screen+ 2 * x + 160 * y);
-    // newline
-    if (c == &#39;\n&#39;) {            
-        x = 0;
+<pre><code class="lang-cpp"><span class="hljs-comment">/* put a byte on screen */</span>
+<span class="hljs-keyword">void</span> Io::putc(<span class="hljs-keyword">char</span> c){
+    kattr = <span class="hljs-number">0x07</span>;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> *video;
+    video = (<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> *) (real_screen+ <span class="hljs-number">2</span> * x + <span class="hljs-number">160</span> * y);
+    <span class="hljs-comment">// newline</span>
+    <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'\n'</span>) {            
+        x = <span class="hljs-number">0</span>;
         y++;
-    // back space
-    } else if (c == &#39;\b&#39;) {    
-        if (x) {
-            *(video + 1) = 0x0;
+    <span class="hljs-comment">// back space</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'\b'</span>) {    
+        <span class="hljs-keyword">if</span> (x) {
+            *(video + <span class="hljs-number">1</span>) = <span class="hljs-number">0x0</span>;
             x--;
         }
-    // horizontal tab
-    } else if (c == &#39;\t&#39;) {    
-        x = x + 8 - (x % 8);
-    // carriage return
-    } else if (c == &#39;\r&#39;) {    
-        x = 0;
-    } else {        
+    <span class="hljs-comment">// horizontal tab</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'\t'</span>) {    
+        x = x + <span class="hljs-number">8</span> - (x % <span class="hljs-number">8</span>);
+    <span class="hljs-comment">// carriage return</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'\r'</span>) {    
+        x = <span class="hljs-number">0</span>;
+    } <span class="hljs-keyword">else</span> {        
         *video = c;
-        *(video + 1) = kattr;
+        *(video + <span class="hljs-number">1</span>) = kattr;
 
         x++;
-        if (x &gt; 79) {
-            x = 0;
+        <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">79</span>) {
+            x = <span class="hljs-number">0</span>;
             y++;
         }
     }
-    if (y &gt; 24)
-        scrollup(y - 24);
+    <span class="hljs-keyword">if</span> (y &gt; <span class="hljs-number">24</span>)
+        scrollup(y - <span class="hljs-number">24</span>);
 }
 </code></pre>
 <p>We also add a useful and very known method: <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/arch/x86/io.cc#L155" target="_blank">printf</a></p>
-<pre><code class="lang-cpp">/* put a string in screen */
-void Io::print(const char *s, ...){
+<pre><code class="lang-cpp"><span class="hljs-comment">/* put a string in screen */</span>
+void Io::<span class="hljs-keyword">print</span>(const char <span class="hljs-variable">*s</span>, ...){
     va_list ap;
 
-    char buf[16];
-    int i, j, size, buflen, neg;
+    char buf[<span class="hljs-number">16</span>];
+    <span class="hljs-keyword">int</span> i, j, <span class="hljs-keyword">size</span>, buflen, neg;
 
     unsigned char c;
-    int ival;
-    unsigned int uival;
+    <span class="hljs-keyword">int</span> ival;
+    unsigned <span class="hljs-keyword">int</span> uival;
 
     va_start(ap, s);
 
-    while ((c = *s++)) {
-        size = 0;
-        neg = 0;
+    <span class="hljs-keyword">while</span> ((c = <span class="hljs-variable">*s</span>++)) {
+        <span class="hljs-keyword">size</span> = <span class="hljs-number">0</span>;
+        neg = <span class="hljs-number">0</span>;
 
-        if (c == 0)
-            break;
-        else if (c == &#39;%&#39;) {
-            c = *s++;
-            if (c &gt;= &#39;0&#39; &amp;&amp; c &lt;= &#39;9&#39;) {
-                size = c - &#39;0&#39;;
-                c = *s++;
+        <span class="hljs-keyword">if</span> (c == <span class="hljs-number">0</span>)
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'%'</span>) {
+            c = <span class="hljs-variable">*s</span>++;
+            <span class="hljs-keyword">if</span> (c &gt;= <span class="hljs-string">'0'</span> &amp;&amp; c &lt;= <span class="hljs-string">'9'</span>) {
+                <span class="hljs-keyword">size</span> = c - <span class="hljs-string">'0'</span>;
+                c = <span class="hljs-variable">*s</span>++;
             }
 
-            if (c == &#39;d&#39;) {
-                ival = va_arg(ap, int);
-                if (ival &lt; 0) {
-                    uival = 0 - ival;
+            <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'d'</span>) {
+                ival = va_arg(ap, <span class="hljs-keyword">int</span>);
+                <span class="hljs-keyword">if</span> (ival &lt; <span class="hljs-number">0</span>) {
+                    uival = <span class="hljs-number">0</span> - ival;
                     neg++;
-                } else
+                } <span class="hljs-keyword">else</span>
                     uival = ival;
-                itoa(buf, uival, 10);
+                itoa(buf, uival, <span class="hljs-number">10</span>);
 
                 buflen = strlen(buf);
-                if (buflen &lt; size)
-                    for (i = size, j = buflen; i &gt;= 0;
+                <span class="hljs-keyword">if</span> (buflen &lt; <span class="hljs-keyword">size</span>)
+                    <span class="hljs-keyword">for</span> (i = <span class="hljs-keyword">size</span>, j = buflen; i &gt;= <span class="hljs-number">0</span>;
                          i--, j--)
                         buf[i] =
                             (j &gt;=
-                             0) ? buf[j] : &#39;0&#39;;
+                             <span class="hljs-number">0</span>) ? buf[j] : <span class="hljs-string">'0'</span>;
 
-                if (neg)
-                    print(&quot;-%s&quot;, buf);
-                else
-                    print(buf);
+                <span class="hljs-keyword">if</span> (neg)
+                    <span class="hljs-keyword">print</span>(<span class="hljs-string">"-%s"</span>, buf);
+                <span class="hljs-keyword">else</span>
+                    <span class="hljs-keyword">print</span>(buf);
             }
-             else if (c == &#39;u&#39;) {
-                uival = va_arg(ap, int);
-                itoa(buf, uival, 10);
+             <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'u'</span>) {
+                uival = va_arg(ap, <span class="hljs-keyword">int</span>);
+                itoa(buf, uival, <span class="hljs-number">10</span>);
 
                 buflen = strlen(buf);
-                if (buflen &lt; size)
-                    for (i = size, j = buflen; i &gt;= 0;
+                <span class="hljs-keyword">if</span> (buflen &lt; <span class="hljs-keyword">size</span>)
+                    <span class="hljs-keyword">for</span> (i = <span class="hljs-keyword">size</span>, j = buflen; i &gt;= <span class="hljs-number">0</span>;
                          i--, j--)
                         buf[i] =
                             (j &gt;=
-                             0) ? buf[j] : &#39;0&#39;;
+                             <span class="hljs-number">0</span>) ? buf[j] : <span class="hljs-string">'0'</span>;
 
-                print(buf);
-            } else if (c == &#39;x&#39; || c == &#39;X&#39;) {
-                uival = va_arg(ap, int);
-                itoa(buf, uival, 16);
+                <span class="hljs-keyword">print</span>(buf);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'x'</span> || c == <span class="hljs-string">'X'</span>) {
+                uival = va_arg(ap, <span class="hljs-keyword">int</span>);
+                itoa(buf, uival, <span class="hljs-number">16</span>);
 
                 buflen = strlen(buf);
-                if (buflen &lt; size)
-                    for (i = size, j = buflen; i &gt;= 0;
+                <span class="hljs-keyword">if</span> (buflen &lt; <span class="hljs-keyword">size</span>)
+                    <span class="hljs-keyword">for</span> (i = <span class="hljs-keyword">size</span>, j = buflen; i &gt;= <span class="hljs-number">0</span>;
                          i--, j--)
                         buf[i] =
                             (j &gt;=
-                             0) ? buf[j] : &#39;0&#39;;
+                             <span class="hljs-number">0</span>) ? buf[j] : <span class="hljs-string">'0'</span>;
 
-                print(&quot;0x%s&quot;, buf);
-            } else if (c == &#39;p&#39;) {
-                uival = va_arg(ap, int);
-                itoa(buf, uival, 16);
-                size = 8;
+                <span class="hljs-keyword">print</span>(<span class="hljs-string">"0x%s"</span>, buf);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'p'</span>) {
+                uival = va_arg(ap, <span class="hljs-keyword">int</span>);
+                itoa(buf, uival, <span class="hljs-number">16</span>);
+                <span class="hljs-keyword">size</span> = <span class="hljs-number">8</span>;
 
                 buflen = strlen(buf);
-                if (buflen &lt; size)
-                    for (i = size, j = buflen; i &gt;= 0;
+                <span class="hljs-keyword">if</span> (buflen &lt; <span class="hljs-keyword">size</span>)
+                    <span class="hljs-keyword">for</span> (i = <span class="hljs-keyword">size</span>, j = buflen; i &gt;= <span class="hljs-number">0</span>;
                          i--, j--)
                         buf[i] =
                             (j &gt;=
-                             0) ? buf[j] : &#39;0&#39;;
+                             <span class="hljs-number">0</span>) ? buf[j] : <span class="hljs-string">'0'</span>;
 
-                print(&quot;0x%s&quot;, buf);
-            } else if (c == &#39;s&#39;) {
-                print((char *) va_arg(ap, int));
+                <span class="hljs-keyword">print</span>(<span class="hljs-string">"0x%s"</span>, buf);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'s'</span>) {
+                <span class="hljs-keyword">print</span>((char <span class="hljs-variable">*)</span> va_arg(ap, <span class="hljs-keyword">int</span>));
             } 
-        } else
+        } <span class="hljs-keyword">else</span>
             putc(c);
     }
 
-    return;
+    <span class="hljs-keyword">return</span>;
 }
 </code></pre>
 <h4 id="assembly-interface">Assembly interface</h4>
 <p>A large number of instructions are available in Assembly but there is not equivalent in C (like cli, sti, in and out), so we need an interface to these instructions.</p>
 <p>In C, we can include Assembly using the directive &quot;asm()&quot;, gcc use gas to compile the assembly.</p>
 <p><strong>Caution:</strong> gas use the AT&amp;T syntax.</p>
-<pre><code class="lang-cpp">/* output byte */
-void Io::outb(u32 ad, u8 v){
-    asmv(&quot;outb %%al, %%dx&quot; :: &quot;d&quot; (ad), &quot;a&quot; (v));;
+<pre><code class="lang-cpp"><span class="hljs-comment">/* output byte */</span>
+void Io::outb(<span class="hljs-keyword">u32</span> ad, <span class="hljs-keyword">u8</span> v){
+    asmv(<span class="hljs-string">"outb %%al, %%dx"</span> :: <span class="hljs-string">"d"</span> (ad), <span class="hljs-string">"a"</span> (v));;
 }
-/* output word */
-void Io::outw(u32 ad, u16 v){
-    asmv(&quot;outw %%ax, %%dx&quot; :: &quot;d&quot; (ad), &quot;a&quot; (v));
+<span class="hljs-comment">/* output word */</span>
+void Io::outw(<span class="hljs-keyword">u32</span> ad, <span class="hljs-keyword">u16</span> v){
+    asmv(<span class="hljs-string">"outw %%ax, %%dx"</span> :: <span class="hljs-string">"d"</span> (ad), <span class="hljs-string">"a"</span> (v));
 }
-/* output word */
-void Io::outl(u32 ad, u32 v){
-    asmv(&quot;outl %%eax, %%dx&quot; : : &quot;d&quot; (ad), &quot;a&quot; (v));
+<span class="hljs-comment">/* output word */</span>
+void Io::outl(<span class="hljs-keyword">u32</span> ad, <span class="hljs-keyword">u32</span> v){
+    asmv(<span class="hljs-string">"outl %%eax, %%dx"</span> : : <span class="hljs-string">"d"</span> (ad), <span class="hljs-string">"a"</span> (v));
 }
-/* input byte */
-u8 Io::inb(u32 ad){
-    u8 _v;       \
-    asmv(&quot;inb %%dx, %%al&quot; : &quot;=a&quot; (_v) : &quot;d&quot; (ad)); \
-    return _v;
+<span class="hljs-comment">/* input byte */</span>
+<span class="hljs-keyword">u8</span> Io::inb(<span class="hljs-keyword">u32</span> ad){
+    <span class="hljs-keyword">u8</span> <span class="hljs-number">_</span>v;       \
+    asmv(<span class="hljs-string">"inb %%dx, %%al"</span> : <span class="hljs-string">"=a"</span> (<span class="hljs-number">_</span>v) : <span class="hljs-string">"d"</span> (ad)); \
+    <span class="hljs-keyword">return</span> <span class="hljs-number">_</span>v;
 }
-/* input word */
-u16    Io::inw(u32 ad){
-    u16 _v;            \
-    asmv(&quot;inw %%dx, %%ax&quot; : &quot;=a&quot; (_v) : &quot;d&quot; (ad));    \
-    return _v;
+<span class="hljs-comment">/* input word */</span>
+<span class="hljs-keyword">u16</span>    Io::inw(<span class="hljs-keyword">u32</span> ad){
+    <span class="hljs-keyword">u16</span> <span class="hljs-number">_</span>v;            \
+    asmv(<span class="hljs-string">"inw %%dx, %%ax"</span> : <span class="hljs-string">"=a"</span> (<span class="hljs-number">_</span>v) : <span class="hljs-string">"d"</span> (ad));    \
+    <span class="hljs-keyword">return</span> <span class="hljs-number">_</span>v;
 }
-/* input word */
-u32    Io::inl(u32 ad){
-    u32 _v;            \
-    asmv(&quot;inl %%dx, %%eax&quot; : &quot;=a&quot; (_v) : &quot;d&quot; (ad));    \
-    return _v;
+<span class="hljs-comment">/* input word */</span>
+<span class="hljs-keyword">u32</span>    Io::inl(<span class="hljs-keyword">u32</span> ad){
+    <span class="hljs-keyword">u32</span> <span class="hljs-number">_</span>v;            \
+    asmv(<span class="hljs-string">"inl %%dx, %%eax"</span> : <span class="hljs-string">"=a"</span> (<span class="hljs-number">_</span>v) : <span class="hljs-string">"d"</span> (ad));    \
+    <span class="hljs-keyword">return</span> <span class="hljs-number">_</span>v;
 }
 </code></pre>
 
@@ -419,7 +424,7 @@ u32    Io::inl(u32 ad){
                 
                     
                         
-                        <a href="../Chapter-6/README.html" class="navigation-link next">Next<span>: GDT</span></a>
+                        <a href="../Chapter-6/README.html" class="navigation-link next">Next</a>
                         
                     
                 
