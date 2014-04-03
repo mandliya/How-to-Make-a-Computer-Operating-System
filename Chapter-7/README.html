@@ -1,21 +1,35 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
-    <head>
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Chapter-7/README.md How to Make a Computer Operating System in C++ | GitBook</title>
-        <meta name="robots" content="index, follow">
-        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="../gitbook/style.css">
+        <title>IDT and interrupts | How to Make a Computer Operating System in C++</title>
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="SamyPesse">
         <meta name="description" content="Online book about how to write a computer operating system in C/C++ from scratch">
         <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        <meta property="og:title" content="IDT and interrupts | How to Make a Computer Operating System in C++">
+        <meta property="og:site_name" content="How to Make a Computer Operating System in C++">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/SamyPesse">
+        <meta property="book:tag" content="GitBook">
+        
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../gitbook/style.css">
+
         <script type="text/javascript">
         (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
-        for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+        for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
         mixpanel.init("01eb2b950ae09a5fdb15a98dcc5ff20e");
         </script>
         
@@ -26,9 +40,13 @@
     <div class="book-header">
     <!-- Actions Left -->
     <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
-    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i> Summary</a>
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
 
     <!-- Actions Right -->
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+
     <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
     <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
 
@@ -43,6 +61,9 @@
         </li>
         <li>
             <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/issues" target="blank">Questions and Issues</a>
+        </li>
+        <li>
+            <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/edit/master/Chapter-7/README.md" target="blank">Edit and Contribute</a>
         </li>
         <li class="divider"></li>
         <li data-level="0">
@@ -208,23 +229,23 @@
                 </div>
                 <div class="chapters">
                 
-                    <a href="../README.html" title="" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+                    <a href="../README.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
                 
-                    <a href="../Chapter-1/README.html" title="" class="chapter done new-chapter" data-progress="1" style="left: 12.5%;"></a>
+                    <a href="../Chapter-1/README.html" title="Introduction about the x86 architecture and about our OS" class="chapter done new-chapter" data-progress="1" style="left: 12.5%;"></a>
                 
-                    <a href="../Chapter-2/README.html" title="" class="chapter done new-chapter" data-progress="2" style="left: 25%;"></a>
+                    <a href="../Chapter-2/README.html" title="Setup the development environment" class="chapter done new-chapter" data-progress="2" style="left: 25%;"></a>
                 
-                    <a href="../Chapter-3/README.html" title="" class="chapter done new-chapter" data-progress="3" style="left: 37.5%;"></a>
+                    <a href="../Chapter-3/README.html" title="First boot with GRUB" class="chapter done new-chapter" data-progress="3" style="left: 37.5%;"></a>
                 
-                    <a href="../Chapter-4/README.html" title="" class="chapter done new-chapter" data-progress="4" style="left: 50%;"></a>
+                    <a href="../Chapter-4/README.html" title="Backbone of the OS and C++ runtime" class="chapter done new-chapter" data-progress="4" style="left: 50%;"></a>
                 
-                    <a href="../Chapter-5/README.html" title="" class="chapter done new-chapter" data-progress="5" style="left: 62.5%;"></a>
+                    <a href="../Chapter-5/README.html" title="Base classes for managing x86 architecture" class="chapter done new-chapter" data-progress="5" style="left: 62.5%;"></a>
                 
-                    <a href="../Chapter-6/README.html" title="" class="chapter done new-chapter" data-progress="6" style="left: 75%;"></a>
+                    <a href="../Chapter-6/README.html" title="GDT" class="chapter done new-chapter" data-progress="6" style="left: 75%;"></a>
                 
-                    <a href="../Chapter-7/README.html" title="" class="chapter done new-chapter" data-progress="7" style="left: 87.5%;"></a>
+                    <a href="../Chapter-7/README.html" title="IDT and interrupts" class="chapter done new-chapter" data-progress="7" style="left: 87.5%;"></a>
                 
-                    <a href="../Chapter-8/README.html" title="" class="chapter  new-chapter" data-progress="8" style="left: 100%;"></a>
+                    <a href="../Chapter-8/README.html" title="Memory management: physical and virtual" class="chapter  new-chapter" data-progress="8" style="left: 100%;"></a>
                 
                 </div>
             </div>
@@ -254,15 +275,15 @@
 <p>Our kernel is going to use the IDT to define the different functions to be executed when an interrupt occurred.</p>
 <p>Like the GDT, the IDT is loaded using the LIDTL assembly instruction. It expects the location of a IDT description structure:</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> idtr {
-    <span class="hljs-keyword">u16</span> limite;
-    <span class="hljs-keyword">u32</span> base;
-} <span class="hljs-number">__</span>attribute__ ((packed));
+    u16 limite;
+    u32 base;
+} __attribute__ ((packed));
 </code></pre>
 <p>The IDT table is composed of IDT segments with the following structure:</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> idtdesc {
     u16 offset0_15;
     u16 select;
-    u16 <span class="hljs-class"><span class="hljs-keyword">type</span>;</span>
+    u16 type;
     u16 offset16_31;
 } __attribute__ ((packed));
 </code></pre>
@@ -345,46 +366,46 @@
 </table>
 <h4 id="how-to-initialize-the-interrupts-">How to initialize the interrupts?</h4>
 <p>This is a simple method to define an IDT segment</p>
-<pre><code class="lang-cpp"><span class="hljs-literal">void</span> init_idt_desc(u16 <span class="hljs-keyword">select</span>, u32 offset, u16 <span class="hljs-keyword">type</span>, struct idtdesc <span class="hljs-subst">*</span>desc)
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> init_idt_desc(u16 select, u32 offset, u16 type, <span class="hljs-keyword">struct</span> idtdesc *desc)
 {
-    desc<span class="hljs-subst">-&gt;</span>offset0_15 <span class="hljs-subst">=</span> (offset <span class="hljs-subst">&amp;</span> <span class="hljs-number">0xffff</span>);
-    desc<span class="hljs-subst">-&gt;</span><span class="hljs-keyword">select</span> <span class="hljs-subst">=</span> <span class="hljs-keyword">select</span>;
-    desc<span class="hljs-subst">-&gt;</span><span class="hljs-keyword">type</span> <span class="hljs-subst">=</span> <span class="hljs-keyword">type</span>;
-    desc<span class="hljs-subst">-&gt;</span>offset16_31 <span class="hljs-subst">=</span> (offset <span class="hljs-subst">&amp;</span> <span class="hljs-number">0xffff0000</span>) <span class="hljs-subst">&gt;&gt;</span> <span class="hljs-number">16</span>;
+    desc-&gt;offset0_15 = (offset &amp; <span class="hljs-number">0xffff</span>);
+    desc-&gt;select = select;
+    desc-&gt;type = type;
+    desc-&gt;offset16_31 = (offset &amp; <span class="hljs-number">0xffff0000</span>) &gt;&gt; <span class="hljs-number">16</span>;
     <span class="hljs-keyword">return</span>;
 }
 </code></pre>
 <p>And we can now initialize the interupts:</p>
-<pre><code class="lang-cpp"><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> IDTBASE    0x00000000</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> IDTSIZE 0xFF</span>
+<pre><code class="lang-cpp"><span class="hljs-preprocessor">#define IDTBASE    0x00000000</span>
+<span class="hljs-preprocessor">#define IDTSIZE 0xFF</span>
 idtr kidtr;
 </code></pre>
-<pre><code class="lang-cpp">void init_idt(void)
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> init_idt(<span class="hljs-keyword">void</span>)
 {
     <span class="hljs-comment">/* Init irq */</span>
     <span class="hljs-keyword">int</span> i;
     <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; IDTSIZE; i++) 
-        init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>)<span class="hljs-number">_</span>asm_schedule, INTGATE, &amp;kidt[i]); <span class="hljs-comment">// </span>
+        init_idt_desc(<span class="hljs-number">0x08</span>, (u32)_asm_schedule, INTGATE, &amp;kidt[i]); <span class="hljs-comment">// </span>
 
     <span class="hljs-comment">/* Vectors  0 -&gt; 31 are for exceptions */</span>
-    init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>) <span class="hljs-number">_</span>asm_exc_GP, INTGATE, &amp;kidt[<span class="hljs-number">13</span>]);        <span class="hljs-comment">/* #GP */</span>
-    init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>) <span class="hljs-number">_</span>asm_exc_PF, INTGATE, &amp;kidt[<span class="hljs-number">14</span>]);     <span class="hljs-comment">/* #PF */</span>
+    init_idt_desc(<span class="hljs-number">0x08</span>, (u32) _asm_exc_GP, INTGATE, &amp;kidt[<span class="hljs-number">13</span>]);        <span class="hljs-comment">/* #GP */</span>
+    init_idt_desc(<span class="hljs-number">0x08</span>, (u32) _asm_exc_PF, INTGATE, &amp;kidt[<span class="hljs-number">14</span>]);     <span class="hljs-comment">/* #PF */</span>
 
-    init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>) <span class="hljs-number">_</span>asm_schedule, INTGATE, &amp;kidt[<span class="hljs-number">32</span>]);
-    init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>) <span class="hljs-number">_</span>asm_int_1, INTGATE, &amp;kidt[<span class="hljs-number">33</span>]);
+    init_idt_desc(<span class="hljs-number">0x08</span>, (u32) _asm_schedule, INTGATE, &amp;kidt[<span class="hljs-number">32</span>]);
+    init_idt_desc(<span class="hljs-number">0x08</span>, (u32) _asm_int_1, INTGATE, &amp;kidt[<span class="hljs-number">33</span>]);
 
-    init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>) <span class="hljs-number">_</span>asm_syscalls, TRAPGATE, &amp;kidt[<span class="hljs-number">48</span>]);
-    init_idt_desc(<span class="hljs-number">0x08</span>, (<span class="hljs-keyword">u32</span>) <span class="hljs-number">_</span>asm_syscalls, TRAPGATE, &amp;kidt[<span class="hljs-number">128</span>]); <span class="hljs-comment">//48</span>
+    init_idt_desc(<span class="hljs-number">0x08</span>, (u32) _asm_syscalls, TRAPGATE, &amp;kidt[<span class="hljs-number">48</span>]);
+    init_idt_desc(<span class="hljs-number">0x08</span>, (u32) _asm_syscalls, TRAPGATE, &amp;kidt[<span class="hljs-number">128</span>]); <span class="hljs-comment">//48</span>
 
     kidtr.limite = IDTSIZE * <span class="hljs-number">8</span>;
     kidtr.base = IDTBASE;
 
 
     <span class="hljs-comment">/* Copy the IDT to the memory */</span>
-    memcpy((<span class="hljs-keyword">char</span> *) kidtr.base, (<span class="hljs-keyword">char</span> *) kidt, kidtr.limite);
+    <span class="hljs-built_in">memcpy</span>((<span class="hljs-keyword">char</span> *) kidtr.base, (<span class="hljs-keyword">char</span> *) kidt, kidtr.limite);
 
     <span class="hljs-comment">/* Load the IDTR registry */</span>
-    asm(<span class="hljs-string">"lidtl (kidtr)"</span>);
+    <span class="hljs-keyword">asm</span>(<span class="hljs-string">"lidtl (kidtr)"</span>);
 }
 </code></pre>
 <p>After intialization our IDT, we need to activate interrupts by configuring the PIC. The following function will configure the two PICs by writting in their internal registries using the output ports of the processor <code>io.outb</code>. We configure the PICs using the ports:</p>
@@ -397,27 +418,27 @@ idtr kidtr;
 <li>ICW (Initialization Command Word): reinit the controller</li>
 <li>OCW (Operation Control Word): configure the controller once initialized (used to mask/unmask the interrupts)</li>
 </ul>
-<pre><code class="lang-cpp">void init_pic(void)
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> init_pic(<span class="hljs-keyword">void</span>)
 {
     <span class="hljs-comment">/* Initialization of ICW1 */</span>
-    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0x20</span>, <span class="hljs-number">0x11</span>)<span class="hljs-comment">;</span>
-    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0xA0</span>, <span class="hljs-number">0x11</span>)<span class="hljs-comment">;</span>
+    io.outb(<span class="hljs-number">0x20</span>, <span class="hljs-number">0x11</span>);
+    io.outb(<span class="hljs-number">0xA0</span>, <span class="hljs-number">0x11</span>);
 
     <span class="hljs-comment">/* Initialization of ICW2 */</span>
-    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0x21</span>, <span class="hljs-number">0x20</span>)<span class="hljs-comment">;    /* start vector = 32 */</span>
-    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0xA1</span>, <span class="hljs-number">0x70</span>)<span class="hljs-comment">;    /* start vector = 96 */</span>
+    io.outb(<span class="hljs-number">0x21</span>, <span class="hljs-number">0x20</span>);    <span class="hljs-comment">/* start vector = 32 */</span>
+    io.outb(<span class="hljs-number">0xA1</span>, <span class="hljs-number">0x70</span>);    <span class="hljs-comment">/* start vector = 96 */</span>
 
     <span class="hljs-comment">/* Initialization of ICW3 */</span>
-    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0x21</span>, <span class="hljs-number">0x04</span>)<span class="hljs-comment">;</span>
-    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0xA1</span>, <span class="hljs-number">0x02</span>)<span class="hljs-comment">;</span>
+    io.outb(<span class="hljs-number">0x21</span>, <span class="hljs-number">0x04</span>);
+    io.outb(<span class="hljs-number">0xA1</span>, <span class="hljs-number">0x02</span>);
 
     <span class="hljs-comment">/* Initialization of ICW4 */</span>
-    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0x21</span>, <span class="hljs-number">0x01</span>)<span class="hljs-comment">;</span>
-    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0xA1</span>, <span class="hljs-number">0x01</span>)<span class="hljs-comment">;</span>
+    io.outb(<span class="hljs-number">0x21</span>, <span class="hljs-number">0x01</span>);
+    io.outb(<span class="hljs-number">0xA1</span>, <span class="hljs-number">0x01</span>);
 
     <span class="hljs-comment">/* mask interrupts */</span>
-    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0x21</span>, <span class="hljs-number">0x0</span>)<span class="hljs-comment">;</span>
-    io<span class="hljs-preprocessor">.outb</span>(<span class="hljs-number">0xA1</span>, <span class="hljs-number">0x0</span>)<span class="hljs-comment">;</span>
+    io.outb(<span class="hljs-number">0x21</span>, <span class="hljs-number">0x0</span>);
+    io.outb(<span class="hljs-number">0xA1</span>, <span class="hljs-number">0x0</span>);
 }
 </code></pre>
 <h4 id="pic-icw-configurations-details">PIC ICW configurations details</h4>
