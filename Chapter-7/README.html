@@ -36,7 +36,10 @@
     </head>
     <body>
         
-    <div class="book" data-github="SamyPesse/How-to-Make-a-Computer-Operating-System" data-level="7" data-basepath=".." data-revision="1397502439610">
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+        
+    <div class="book" data-github="SamyPesse/How-to-Make-a-Computer-Operating-System" data-level="7" data-basepath=".." data-revision="1397848010889">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -456,64 +459,64 @@ idtr kidtr;
 <h4 id="pic-icw-configurations-details">PIC ICW configurations details</h4>
 <p>The registries have to be configured in order.</p>
 <p><strong>ICW1 (port 0x20 / port 0xA0)</strong></p>
-<pre><code>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">1</span>|x|<span class="hljs-number">0</span>|x|x|
-         |   | +--- <span class="hljs-keyword">with</span> ICW4 (<span class="hljs-number">1</span>) <span class="hljs-keyword">or</span> without (<span class="hljs-number">0</span>)
-         |   +----- one controller (<span class="hljs-number">1</span>), <span class="hljs-keyword">or</span> cascade (<span class="hljs-number">0</span>)
-         +--------- triggering <span class="hljs-keyword">by</span> level (level) (<span class="hljs-number">1</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">by</span> edge (edge) (<span class="hljs-number">0</span>)
+<pre><code>|0|0|0|1|x|0|x|x|
+         |   | +--- with ICW4 (1) or without (0)
+         |   +----- one controller (1), or cascade (0)
+         +--------- triggering by level (level) (1) or by edge (edge) (0)
 </code></pre><p><strong>ICW2 (port 0x21 / port 0xA1)</strong></p>
-<pre><code><span class="hljs-localvars">|x|x|x|x|x|</span><span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|  
+<pre><code>|x|x|x|x|x|0|0|0|  
  | | | | |
  +----------------- base address for interrupts vectors
 </code></pre><p><strong>ICW2 (port 0x21 / port 0xA1)</strong></p>
 <p>For the master:</p>
-<pre><code><span class="hljs-localvars">|x|x|x|x|x|x|x|x|</span>
+<pre><code>|x|x|x|x|x|x|x|x|
  | | | | | | | |
- +------------------ slave controller connected to the port yes (<span class="hljs-number">1</span>), or no (<span class="hljs-number">0</span>)
+ +------------------ slave controller connected to the port yes (1), or no (0)
 </code></pre><p>For the slave:</p>
-<pre><code>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|x|x|x|  pour l<span class="hljs-comment">'esclave</span>
+<pre><code>|0|0|0|0|0|x|x|x|  pour l&#39;esclave
            | | |
-           +-------- Slave ID which <span class="hljs-keyword">is</span> equal <span class="hljs-keyword">to</span> the master port
+           +-------- Slave ID which is equal to the master port
 </code></pre><p><strong>ICW4 (port 0x21 / port 0xA1)</strong></p>
 <p>It is used to define in which mode the controller chould works.</p>
-<pre><code>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span>|<span class="hljs-number">0</span><span class="hljs-localvars">|x|x|x|x|</span><span class="hljs-number">1</span>|
-       | | | +------ mode <span class="hljs-comment">"automatic end of interrupt"</span> <span class="hljs-class">AEOI</span> (<span class="hljs-number">1</span>)
-       | | +-------- mode buffered slave (<span class="hljs-number">0</span>) or master (<span class="hljs-number">1</span>)
-       | +---------- mode buffered (<span class="hljs-number">1</span>)
-       +------------ mode <span class="hljs-comment">"fully nested"</span> (<span class="hljs-number">1</span>)
+<pre><code>|0|0|0|x|x|x|x|1|
+       | | | +------ mode &quot;automatic end of interrupt&quot; AEOI (1)
+       | | +-------- mode buffered slave (0) or master (1)
+       | +---------- mode buffered (1)
+       +------------ mode &quot;fully nested&quot; (1)
 </code></pre><h4 id="why-does-idt-segments-offset-are-asm-functions-">Why does idt segments offset are ASM functions?</h4>
 <p>You should had notice that when I&#39;m initializing our IDT segments, I&#39;m using offset to segment of code in Assembly. The se different functions are defined in <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/arch/x86/x86int.asm" target="_blank">x86int.asm</a> and are following the scheme:</p>
-<pre><code><span class="hljs-variable">%macro</span>    SAVE_REGS <span class="hljs-number">0</span>
+<pre><code>%macro    SAVE_REGS 0
     pushad 
-    <span class="hljs-keyword">push</span> ds
-    <span class="hljs-keyword">push</span> es
-    <span class="hljs-keyword">push</span> fs
-    <span class="hljs-keyword">push</span> gs 
-    <span class="hljs-keyword">push</span> ebx
-    mov bx,<span class="hljs-number">0x10</span>
+    push ds
+    push es
+    push fs
+    push gs 
+    push ebx
+    mov bx,0x10
     mov ds,bx
-    <span class="hljs-keyword">pop</span> ebx
-<span class="hljs-variable">%endmacro</span>
+    pop ebx
+%endmacro
 
-<span class="hljs-variable">%macro</span>    RESTORE_REGS <span class="hljs-number">0</span>
-    <span class="hljs-keyword">pop</span> gs
-    <span class="hljs-keyword">pop</span> fs
-    <span class="hljs-keyword">pop</span> es
-    <span class="hljs-keyword">pop</span> ds
+%macro    RESTORE_REGS 0
+    pop gs
+    pop fs
+    pop es
+    pop ds
     popad
-<span class="hljs-variable">%endmacro</span>
+%endmacro
 
-<span class="hljs-variable">%macro</span>    INTERRUPT <span class="hljs-number">1</span>
-global _asm_int<span class="hljs-number">_</span><span class="hljs-variable">%1</span>
-_asm_int<span class="hljs-number">_</span><span class="hljs-variable">%1</span>:
+%macro    INTERRUPT 1
+global _asm_int_%1
+_asm_int_%1:
     SAVE_REGS
-    <span class="hljs-keyword">push</span> <span class="hljs-variable">%1</span>
+    push %1
     call isr_default_int
-    <span class="hljs-keyword">pop</span> eax    ;;a enlever sinon
-    mov al,<span class="hljs-number">0x20</span>
-    out <span class="hljs-number">0x20</span>,al
+    pop eax    ;;a enlever sinon
+    mov al,0x20
+    out 0x20,al
     RESTORE_REGS
     iret
-<span class="hljs-variable">%endmacro</span>
+%endmacro
 </code></pre><p>These macros will be used to define interrupt segment that will prevent corruption of the different registries, it will be very usefull for multitasking.</p>
 
                     
@@ -533,9 +536,9 @@ _asm_int<span class="hljs-number">_</span><span class="hljs-variable">%1</span>:
 </div>
 
         
-        <link rel="stylesheet" href="../gitbook/style.css">
-        
-        
+        <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+        </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
         <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>

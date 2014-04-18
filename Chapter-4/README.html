@@ -36,7 +36,10 @@
     </head>
     <body>
         
-    <div class="book" data-github="SamyPesse/How-to-Make-a-Computer-Operating-System" data-level="4" data-basepath=".." data-revision="1397502439610">
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+        
+    <div class="book" data-github="SamyPesse/How-to-Make-a-Computer-Operating-System" data-level="4" data-basepath=".." data-revision="1397848010889">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -302,17 +305,17 @@
 <p>Compiling a kernel is not the same thing as compiling a linux executable, we can&#39;t use a standard library and should have no dependencies to the system.</p>
 <p>Our <a href="https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/kernel/Makefile" target="_blank">Makefile</a> will define the process to compile and link our kernel.</p>
 <p>For x86 architecture, the followings arguments will be used for gcc/g++/ld:</p>
-<pre><code><span class="hljs-comment"># Linker</span>
-<span class="hljs-constant">LD</span>=ld
-<span class="hljs-constant">LDFLAG</span>= -melf_i386 -static  -L ./  -T ./arch/<span class="hljs-variable">$(ARCH)</span>/linker.ld
+<pre><code># Linker
+LD=ld
+LDFLAG= -melf_i386 -static  -L ./  -T ./arch/$(ARCH)/linker.ld
 
-<span class="hljs-comment"># C++ compiler</span>
-<span class="hljs-constant">SC</span>=g++
-<span class="hljs-constant">FLAG</span>= <span class="hljs-variable">$(INCDIR)</span> -g -O2 -w -trigraphs -fno-builtin  -fno-exceptions -fno-stack-protector -O0 -m32  -fno-rtti -nostdlib -nodefaultlibs 
+# C++ compiler
+SC=g++
+FLAG= $(INCDIR) -g -O2 -w -trigraphs -fno-builtin  -fno-exceptions -fno-stack-protector -O0 -m32  -fno-rtti -nostdlib -nodefaultlibs 
 
-<span class="hljs-comment"># Assembly compiler</span>
-<span class="hljs-constant">ASM</span>=nasm
-<span class="hljs-constant">ASMFLAG</span>=-f elf -o
+# Assembly compiler
+ASM=nasm
+ASMFLAG=-f elf -o
 </code></pre>
                     
                     </section>
@@ -331,9 +334,9 @@
 </div>
 
         
-        <link rel="stylesheet" href="../gitbook/style.css">
-        
-        
+        <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+        </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
         <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
